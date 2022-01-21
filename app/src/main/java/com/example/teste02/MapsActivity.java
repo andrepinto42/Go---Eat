@@ -1,9 +1,13 @@
 package com.example.teste02;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.location.Address;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.teste02.LocationAndroid.GetLocationUser;
@@ -86,4 +90,31 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,15f));
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.mymenu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.home:
+                setContentView(R.layout.activity_maps);
+                break;
+            case R.id.secondlayout:
+                setContentView(R.layout.secondlayout);
+            case R.id.thirdlayout:
+                setContentView(R.layout.thirdlayout);
+            case R.id.exit:
+                finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //public void
 }
