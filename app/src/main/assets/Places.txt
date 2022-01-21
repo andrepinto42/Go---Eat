@@ -1,0 +1,242 @@
+Restaurante Lua Cheia;ChIJ61FATpr-JA0RGBr-plI6hWE;1;4.7;328;[restaurant,food,point_of_interest,establishment];41.5595704;-8.4053544
+Steak n Shake;ChIJ5VKiFpr-JA0R1lmo32GWcVg;2;4.2;248;[restaurant,food,point_of_interest,establishment];41.55853;-8.406354000000002
+Petisqueira Confiança;ChIJH_tj0pn-JA0R7cY142QSOsk;None;4.6;179;[restaurant,food,point_of_interest,establishment];41.5553369;-8.4067344
+Roberto's Café - bistrô & steakhouse;ChIJzawCoM7_JA0RqxAIhPMjwq4;2;4.6;79;[restaurant,food,point_of_interest,establishment];41.5521555;-8.400179399999999
+100 Montaditos;ChIJ5_9TE5r-JA0RGjeTaIya0ww;1;4.4;857;[restaurant,food,point_of_interest,establishment];41.5581125;-8.3984103
+Braga pizzaria kebab;ChIJw09AhSn_JA0RlT3QbHCIhW0;1;4.2;104;[restaurant,food,point_of_interest,establishment];41.5574741;-8.399064599999999
+Sabor Da Fruta, Restauração, Lda;ChIJz4LOdp7-JA0RcmS1pvvOvM0;1;4;221;[restaurant,food,point_of_interest,establishment];41.5579103;-8.3983454
+Chibaria Bar;ChIJb9nCXJ7-JA0RCM1PAMjWAW4;1;4.1;376;[restaurant,food,point_of_interest,establishment];41.5567567;-8.3986254
+Espaço 12;ChIJg_ufm6L-JA0RzjU5lb8fFpM;1;4.3;353;[restaurant,food,point_of_interest,establishment];41.5546967;-8.405333599999999
+Ask and Go;ChIJHcxTvNr_JA0RrlNJ7DuJWtg;None;0;0;[restaurant,food,point_of_interest,establishment];41.55739579999999;-8.399014
+Restaurante Cafetaria "O Túnel";ChIJZ5WfhZf-JA0R1psAoduGc68;1;3.8;99;[restaurant,food,point_of_interest,establishment];41.5544808;-8.407969
+Leitão & frango;ChIJ92wyE5r-JA0RRICVKL8W79A;None;5;2;[restaurant,food,point_of_interest,establishment];41.55883850000001;-8.4065543
+UniVegetariano;ChIJ0Z2Btff_JA0Ry6fgtgd60xE;None;4.9;35;[restaurant,food,point_of_interest,establishment];41.5571004;-8.3995561
+Naco na Pedra;ChIJ7Ufg9Jr-JA0R-e1Roh21F-s;None;4.6;729;[restaurant,food,point_of_interest,establishment];41.5602406;-8.405968399999999
+Brasa Rio;ChIJBc1wOZr-JA0RQj3k-SlQHeQ;None;4.4;431;[restaurant,food,point_of_interest,establishment];41.5586552;-8.4056484
+Bellucci pizzaria;ChIJO1F-7C_9JA0RwWreoDsNcxQ;None;4.8;129;[restaurant,food,point_of_interest,establishment];41.5539048;-8.3948621
+Restaurante Casa Alves;ChIJR2EXTJr-JA0Rxtt4WO0Gs38;2;4.5;421;[restaurant,food,point_of_interest,establishment];41.5593503;-8.4050146
+Bendito’s Burger and Beer;ChIJz3WVoKz_JA0R2r8JlFO_0WY;1;4.7;457;[bar,restaurant,food,point_of_interest,establishment];41.5547682;-8.4065121
+Wok To Walk;ChIJjU2595n-JA0R4Hd9le2TvOk;2;4.1;262;[meal_takeaway,restaurant,food,point_of_interest,establishment];41.5585193;-8.406524
+Terminal Café Braga;ChIJvdosk57-JA0R-TGy2d3EM28;1;4.5;127;[restaurant,food,point_of_interest,establishment];41.558032;-8.398538199999999
+Ro Restaurante;ChIJ9--qsYP_JA0R9yvcSqxiSPw;None;5;6;[restaurant,food,point_of_interest,establishment];41.5611255;-8.4086652
+Café Snackbar Isa;ChIJh-UTJ-r_JA0RdikiMp510kA;None;4.4;5;[restaurant,food,point_of_interest,establishment];41.55748029999999;-8.398794100000002
+Telepizza Braga Retail Center;ChIJLwaHdIX-JA0RQqN3CEyLKzk;None;4.2;331;[restaurant,food,point_of_interest,establishment];41.5647748;-8.4063418
+h3;ChIJ6zHr_pn-JA0Ry_5wG1CEJ80;2;3.7;74;[restaurant,food,point_of_interest,establishment];41.557377;-8.406554
+Restaurante Colombo II;ChIJ_c34Spj-JA0RW08sMVP8Ls4;1;3.6;99;[restaurant,food,point_of_interest,establishment];41.55723630000001;-8.3993254
+Boa Boca;ChIJb7kYhL3-JA0RCpO-rLb6TCY;None;4.4;343;[restaurant,food,point_of_interest,establishment];41.5519822;-8.4105849
+Edna's Boteco;ChIJjaqpIKH_JA0RvgfNP05eaxI;None;4.8;29;[restaurant,food,point_of_interest,establishment];41.5549416;-8.4107088
+Restaurant;ChIJ5YAsJ5_-JA0RHfDj1dDA2K0;1;4.3;404;[restaurant,food,point_of_interest,establishment];41.5553779;-8.4009371
+daTerra Braga Parque;ChIJr7tzhjX_JA0Re45XXEJJ6Y0;2;4.4;24;[restaurant,food,point_of_interest,establishment];41.5586843;-8.406513799999999
+ArtnaBrasa;ChIJ3SM4WvL_JA0Rgx3fepnr3jg;None;4.4;33;[restaurant,food,point_of_interest,establishment];41.559967;-8.4069126
+Pausa Útil;ChIJhyx80Z7-JA0RbGyhddzWc9A;1;4.6;554;[restaurant,food,point_of_interest,establishment];41.5559652;-8.401565399999999
+Italian Republic;ChIJLemaPJr-JA0R0qmUwItIzzg;None;4;275;[restaurant,food,point_of_interest,establishment];41.5583995;-8.4057797
+Il Fiume Nogueiró;ChIJU15O5KH-JA0RvMYQsq1Y0Lk;2;4.3;890;[restaurant,food,point_of_interest,establishment];41.5527838;-8.401236899999999
+Cervejaria Parque;ChIJOdGcOJr-JA0RXO_j6VUPOYY;None;4.4;10;[restaurant,food,point_of_interest,establishment];41.5589094;-8.4056523
+Mamma Mia;ChIJA7DpEC78JA0RyDc8y8rDC1E;2;4.4;482;[restaurant,food,point_of_interest,establishment];41.5681313;-8.386305900000002
+Pizzaria Artesanal Bella Venezia;ChIJPeLs_p_-JA0R3V_ARhu3ejk;None;4.7;208;[restaurant,food,point_of_interest,establishment];41.5535992;-8.396719
+Churrasqueira Alice - Alice & Fernando, Lda.;ChIJIXqrZJ7-JA0RbEsov4R12Nc;1;4.2;305;[restaurant,food,point_of_interest,establishment];41.5550072;-8.406199299999999
+zero.53;ChIJlyCcdp7-JA0Rhe0YVCZuGgU;1;4.4;260;[restaurant,food,point_of_interest,establishment];41.5579176;-8.3983096
+Bodegão;ChIJq-U0E5r-JA0RSbgzj019-jw;2;3.9;85;[restaurant,food,point_of_interest,establishment];41.5588422;-8.4065348
+Restaurante Com'Testo;ChIJjyepvS_8JA0RoPW4_cIoRkM;2;4.5;210;[restaurant,food,point_of_interest,establishment];41.565428;-8.3872033
+Ohlálá;ChIJBQNjthz9JA0R0f6R2dXH0M0;2;4.5;115;[restaurant,food,point_of_interest,establishment];41.5520329;-8.395132199999999
+Restaurante Pevidém 3;ChIJsSBljh_8JA0R0e0xBjjVUxM;2;4.2;304;[restaurant,food,point_of_interest,establishment];41.5530142;-8.3947381
+O Canudo;ChIJaZC2v6H-JA0RLHYFaQcmzps;1;4.3;469;[restaurant,food,point_of_interest,establishment];41.5516773;-8.400455899999999
+Shanti - Restaurante Vegetariano Vegano;ChIJN9KYq2L_JA0RYidtXK4VVq8;None;4.6;100;[restaurant,food,point_of_interest,establishment];41.5575232;-8.3988972
+Adega do Crasto;ChIJwSpAMhj8JA0RGu8kdUsMl_I;1;4.7;94;[restaurant,food,point_of_interest,establishment];41.5519444;-8.3863889
+Restaurante El Olivo;ChIJ6yF8myD8JA0RJO9HYYbvhBM;3;4.2;152;[restaurant,parking,bar,food,point_of_interest,establishment];41.5566039;-8.3950675
+Lamasan ラマさん;ChIJXxxRTJj-JA0RPqsLWq2th-A;2;4.4;360;[restaurant,food,point_of_interest,establishment];41.5569484;-8.399763
+Tasquinha Bracarense 1;ChIJxTpifJ7-JA0Re8nyGGmUFXw;1;4.1;939;[restaurant,food,point_of_interest,establishment];41.5576403;-8.3990727
+Dom Pastel I - Pastéis Brasileiros;ChIJ_46aOCb8JA0RC1_m9tKWp2c;1;4.5;347;[restaurant,food,point_of_interest,establishment];41.56237309999999;-8.3928452
+Adega Regional de Tenões;ChIJIRamqyP8JA0RTYG-Au6JMEA;2;4.4;183;[restaurant,food,point_of_interest,establishment];41.5566565;-8.3884857
+Mammamia - Gelato Italiano Artigianale;ChIJQWuMF5r-JA0RT3Bekf41ulQ;None;4.5;38;[restaurant,food,point_of_interest,establishment];41.5582826;-8.406188199999999
+Grelhado's de Braga;ChIJL8s5lR_8JA0RUSR_ELlvL-Q;1;4.2;392;[restaurant,food,point_of_interest,establishment];41.5523281;-8.3950982
+Casa De Pasto Antigo Mariano;ChIJ22QOrSX8JA0Rk0pqtG-FZk8;1;4.3;281;[restaurant,food,point_of_interest,establishment];41.5615126;-8.3888524
+Lá e Cá Restaurante e Petisqueira;ChIJ_6B2VED9JA0Rar3V93A4RkI;None;0;0;[restaurant,food,point_of_interest,establishment];41.5628543;-8.392591399999999
+Churrasqueira da Lameira;ChIJm8zjoi_8JA0R_qoupRzDdfk;1;4;82;[restaurant,food,point_of_interest,establishment];41.5653616;-8.3880582
+Mikado Braga;ChIJJWMrkJX_JA0RTdCSfzU7avA;None;4.1;41;[restaurant,food,point_of_interest,establishment];41.557905;-8.398731
+Tomatino;ChIJBSxVhJn-JA0Rv5LJd0Jviho;None;3.7;31;[restaurant,food,point_of_interest,establishment];41.5587451;-8.405657999999999
+Take Away Churrasqueira Colombo III;ChIJvVsXipD-JA0RFeHfwEb3_7E;None;3.9;17;[restaurant,food,point_of_interest,establishment];41.5598862;-8.4085298
+Loja das Sopas;ChIJ99WPOJr-JA0RXZCUDP3V1Ko;None;3.3;3;[restaurant,food,point_of_interest,establishment];41.5588712;-8.4056483
+La Piola 2 Braga Parque;ChIJuWBqrIz_JA0RPlpGw5iJsB4;None;1;2;[restaurant,food,point_of_interest,establishment];41.5587341;-8.406458299999999
+Retrokitchen;ChIJ3ZTmtcP-JA0RabJWa70-U6g;2;4.7;912;[restaurant,food,point_of_interest,establishment];41.5485063;-8.4253457
+Casa de Pasto das Carvalheiras;ChIJ7VQK2ML-JA0RlrdNuXKA7lc;2;4.5;714;[restaurant,food,point_of_interest,establishment];41.5485263;-8.428622599999999
+La Porta;ChIJjTzld_T_JA0RQUPd53Gzmzw;2;4.5;533;[restaurant,food,point_of_interest,establishment];41.5503658;-8.4290041
+Bira dos Namorados;ChIJafac_sL-JA0RvZzJyZcv23o;2;4.6;2625;[restaurant,food,point_of_interest,establishment];41.5487094;-8.426931999999999
+Taberna Do Félix;ChIJyRTlucL-JA0R4PXHJ-Sccls;2;4.4;393;[restaurant,food,point_of_interest,establishment];41.5499709;-8.4287882
+Restaurante Pecado da Sé;ChIJ3cnpPbv_JA0RTcTiF8Iq8Zw;None;4.7;138;[restaurant,food,point_of_interest,establishment];41.5495062;-8.4264242
+Bistrô Chefão Steak House;ChIJ48b0XZ__JA0RKGTzfcK5bxk;2;4.6;291;[restaurant,food,point_of_interest,establishment];41.5521991;-8.4239256
+Dona Petisca;ChIJ922k6sL-JA0RCyfUlR8AWvs;2;4.6;718;[restaurant,food,point_of_interest,establishment];41.5498486;-8.4280755
+Temple San;ChIJgz69SEX_JA0RUadn0kTdD2w;2;4.6;508;[restaurant,food,point_of_interest,establishment];41.5475024;-8.433433599999999
+Pregaria da Sé;ChIJ2ZghmML-JA0RP8iTDwCT8ZA;1;4.1;159;[restaurant,food,point_of_interest,establishment];41.5504773;-8.4279233
+Restaurante Aristides;ChIJUZ3blef-JA0RU1Jm6ZlCu88;2;4.5;219;[restaurant,food,point_of_interest,establishment];41.5518799;-8.431157100000002
+Habanero;ChIJPzcs3ez-JA0R8JyX258JHcE;2;4.3;479;[restaurant,food,point_of_interest,establishment];41.558541;-8.419549
+RUELA - Eat. Drink. Terrace;ChIJJSHGP0L_JA0R0z7KYQM-uT0;None;4.7;64;[restaurant,food,point_of_interest,establishment];41.5489941;-8.4275673
+Kartilho;ChIJf-LjzQ__JA0RGFaRgMIRQlw;None;4.7;172;[restaurant,food,point_of_interest,establishment];41.5488062;-8.4277664
+Caffé Italy;ChIJHXxYTTD_JA0Rn6-gjHPVWRc;2;4.4;500;[restaurant,food,point_of_interest,establishment];41.5515619;-8.4236739
+Alma d'Eça;ChIJqxRj2un-JA0RWlCZeg-fuMc;3;4.5;750;[restaurant,food,point_of_interest,establishment];41.5516637;-8.4259005
+Taberna da Fonte;ChIJQ6jCcgv_JA0R4hh9nKPOLRU;None;4.9;19;[restaurant,food,point_of_interest,establishment];41.5513747;-8.428109899999999
+pPlace - Restaurant & Cocktail Bar;ChIJp0wgiaD_JA0R64-VuelnpXE;2;4.8;258;[restaurant,food,point_of_interest,establishment];41.5499597;-8.427691900000001
+Restaurante O Jacó;ChIJNf9Bed3-JA0Ruzp1n1k6KH8;2;4.6;966;[restaurant,food,point_of_interest,establishment];41.550925;-8.431949
+Velhos Tempos;ChIJKwC1oOn-JA0RNR5lLGakC-0;2;4.5;796;[restaurant,food,point_of_interest,establishment];41.5535405;-8.4255911
+Hamburgueria DeGema (Braga, Centro);ChIJg7HCCsL-JA0Rm30ThtBefqM;1;4.4;1849;[restaurant,food,point_of_interest,establishment];41.551056;-8.425152599999999
+Taberna Londrina Braga;ChIJ8R8EG6L_JA0R7ggsrqz7ZC4;2;4.4;1192;[restaurant,food,point_of_interest,establishment];41.5502287;-8.4305676
+Marisqueira de Braga;ChIJtXYLasf-JA0RA7j0KS6zlKU;2;4.1;196;[restaurant,food,point_of_interest,establishment];41.5453121;-8.4197118
+Domus Vinum - Wine Bar & Tapas;ChIJew5CPt3-JA0Rb4DiUqL5TDs;2;4.4;522;[bar,restaurant,food,point_of_interest,establishment];41.5494537;-8.4306099
+Botafogo;ChIJZbpUMur-JA0RXNWLmaYuO-I;1;4.1;427;[restaurant,food,point_of_interest,establishment];41.5537185;-8.4230616
+Esquina do Mar;ChIJjY6WgS7_JA0RxUPU-J79ARg;None;4.1;26;[restaurant,food,point_of_interest,establishment];41.54909350000001;-8.4272143
+Palatu Taperia;ChIJ43yX5ML-JA0RMAr7FCK_c0M;2;3.9;227;[restaurant,food,point_of_interest,establishment];41.5490374;-8.4273672
+Restaurante Agostinho na Estação;ChIJwYB-7TX_JA0RWpF9xyDfB_k;None;4.9;13;[restaurant,food,point_of_interest,establishment];41.54800669999999;-8.4349472
+Nocha's Tapas & Wine;ChIJJWI-GsL-JA0RKsgnOd1WhQE;1;4.7;260;[restaurant,food,point_of_interest,establishment];41.550482;-8.4245547
+Centurium;ChIJ4-GmGMD-JA0RDDOchDicztc;2;4.4;350;[restaurant,food,point_of_interest,establishment];41.5512937;-8.419865999999999
+Cozinha da Sé;ChIJYygSucL-JA0RCnQdgIeluEE;2;4.5;939;[restaurant,bar,food,point_of_interest,establishment];41.5492663;-8.4283761
+Time To;ChIJRxrF4ML-JA0RxV6sOaGZQQI;2;4.5;327;[restaurant,food,point_of_interest,establishment];41.5488677;-8.4279826
+Tasquinha Dom Ferreira;ChIJr5AH0Ov-JA0RgZdVPabmzBE;2;4.6;675;[restaurant,food,point_of_interest,establishment];41.5545289;-8.4231465
+Diana;ChIJm7mf2ML-JA0RVK02kNdbLs0;3;4.5;378;[restaurant,food,point_of_interest,establishment];41.5485798;-8.428458899999999
+Lakkana;ChIJMTbx5cL-JA0RGjtL9e3U3c8;2;4.5;410;[restaurant,food,point_of_interest,establishment];41.5492083;-8.4277164
+Hibiscus;ChIJ28db9On-JA0RO3t9efiX_4c;2;4.6;476;[restaurant,food,point_of_interest,establishment];41.5524304;-8.4241298
+Gosto Superior;ChIJl4Go7-r-JA0R3NazWjnMEnI;1;4.7;1080;[restaurant,food,point_of_interest,establishment];41.553339;-8.4201572
+aTípica - Restaurante, Tapas Bar e Sabores de Portugal;ChIJT8knuML-JA0R2pkQDb2yqu0;None;4.5;551;[restaurant,bar,food,point_of_interest,establishment];41.54982589999999;-8.428696
+Esperança Verde;ChIJR6xxsvL_JA0RF2vq2WfRI8E;2;4.8;113;[restaurant,food,point_of_interest,establishment];41.5582891;-8.4234919
+Tasquinha do Fujacal;ChIJB4CGOPP_JA0RlQzWfM80ZX0;1;4.8;659;[restaurant,food,point_of_interest,establishment];41.5432755;-8.422909599999999
+Restaurante Cantinho do Carmo;ChIJI6JjoOn-JA0RkfwI1kYfHyU;1;3.7;216;[restaurant,food,point_of_interest,establishment];41.553696;-8.425431999999999
+Otsu Biru;ChIJaftBnMH-JA0RIUYH7FeA8Xk;2;4.3;662;[restaurant,food,point_of_interest,establishment];41.5491615;-8.4229753
+MENU MY TASTY;ChIJaz2Dpen-JA0RqxafJ0aPnXM;None;0;0;[restaurant,food,point_of_interest,establishment];41.553257;-8.425924
+Íntimista Steakhouse;ChIJuQy_hDv_JA0RYQnDLGzFed0;2;4.7;66;[restaurant,bar,food,point_of_interest,establishment];41.5568845;-8.417267299999999
+Café Astória;ChIJeRstZ__tJA0Rtd8psVZ0u-k;2;3.8;897;[restaurant,food,point_of_interest,establishment];41.5515447;-8.423556699999999
+Mariscos - Bogafogo II Churrasqueira;ChIJZ1jikhD_JA0RcmMmrHJ4xtE;None;5;4;[restaurant,food,point_of_interest,establishment];41.55374880000001;-8.4230323
+Restaurante Cervejaria Senhora-a-Branca;ChIJd9y0AMD-JA0RlidfTv5Z2oE;2;4.1;166;[restaurant,food,point_of_interest,establishment];41.5514503;-8.418491699999999
+Gotham MTY;ChIJyw7N2pX_JA0RlT4_Av9flnA;None;5;1;[restaurant,food,point_of_interest,establishment];41.5569235;-8.4251176
+Donna Pizza Braga;ChIJ7YcY8TP_JA0RNB4-VhyNZOs;None;4.9;62;[restaurant,food,point_of_interest,establishment];41.55047039999999;-8.4289738
+Mimo´s Smoke House;ChIJld5S-C__JA0REUKDZH1Xs5A;None;4.6;129;[restaurant,food,point_of_interest,establishment];41.5494424;-8.4205258
+Canté Food & Friends;ChIJuZZKiyL_JA0RezfBvWcUxxA;None;4.8;91;[restaurant,food,point_of_interest,establishment];41.54957479999999;-8.4263145
+Restaurante Dom Augusto;ChIJo6z6nOv-JA0Rds1Q6kVjG0M;2;4.6;754;[restaurant,food,point_of_interest,establishment];41.5557328;-8.421391999999999
+Atravessado - Restaurante & Petisqueira;ChIJ0YblmKX_JA0R5ge06ALvzS4;2;4.6;143;[restaurant,food,point_of_interest,establishment];41.548373;-8.4278474
+Rotiveminho;ChIJrZXRWcD-JA0R2_ofJw3-N6E;1;4.5;424;[restaurant,food,point_of_interest,establishment];41.54939479999999;-8.4205378
+Restaurante Trota's;ChIJ6yqO77_-JA0RQJwAIHOg2Ys;2;4.5;515;[restaurant,food,point_of_interest,establishment];41.5512209;-8.417572
+Taberna do Migaitas;ChIJx1_F78L-JA0R9WRouY_vOZY;2;4.2;713;[restaurant,food,point_of_interest,establishment];41.5493777;-8.4273806
+Bicla Burgers (Braga - Centro);ChIJd3Glccj_JA0Rm9lYUW4Fzj8;2;4.7;522;[restaurant,food,point_of_interest,establishment];41.5548297;-8.4241309
+Restaurante Silvas;ChIJX19F_sH-JA0RBj2M9GlVgvY;2;4.3;321;[restaurant,food,point_of_interest,establishment];41.5513077;-8.4237175
+PARTILHA by Mise en Place;ChIJhYSKxsz_JA0RMprz9y7Bjwo;None;4.5;28;[restaurant,food,point_of_interest,establishment];41.5500183;-8.4284251
+O AMOR vive na Cozinha;ChIJsSyyrSb_JA0RRa8k8JOwpYI;None;4.7;97;[restaurant,food,point_of_interest,establishment];41.5547408;-8.4279225
+Gato Lambão;ChIJaXdAAx3_JA0RoB8nml5NRcQ;1;4.5;249;[restaurant,food,point_of_interest,establishment];41.5578726;-8.4427536
+Restaurante Costa;ChIJSXlbAAX_JA0Ro5v63BX_KN8;1;4.2;471;[restaurant,food,point_of_interest,establishment];41.56291110000001;-8.4496402
+Real Taberna;ChIJX8zqVhv_JA0RJpF_YRFY7As;2;4.3;1481;[restaurant,food,point_of_interest,establishment];41.559359;-8.446041
+Forno Mágico;ChIJ5T1gcgP_JA0RxY9agJ0buH8;2;4;1957;[restaurant,food,point_of_interest,establishment];41.5618555;-8.444611199999999
+Artnabrasa;ChIJpxeDjET_JA0Rthn-eL34Crk;None;3.7;190;[restaurant,food,point_of_interest,establishment];41.5528961;-8.436149799999999
+Tiberna;ChIJUdWkG3T_JA0RPW0Fzj084TQ;None;4.8;34;[restaurant,food,point_of_interest,establishment];41.56975610000001;-8.451219199999999
+Salsa Rosa;ChIJnaUE7Gj_JA0Rjz28h6H-1ac;None;4.5;38;[restaurant,food,point_of_interest,establishment];41.5626877;-8.4434512
+Burger King Braga Frossos;ChIJEwWPUDf_JA0Re7NrSLZ9Y6E;1;4.1;554;[meal_delivery,restaurant,food,point_of_interest,establishment];41.5602296;-8.4473375
+Restaurante "Os Arantes";ChIJY3hs-6f_JA0RA6VfSHih-Og;1;4.3;136;[restaurant,food,point_of_interest,establishment];41.5697033;-8.4516873
+Real Churrascaria;ChIJd5r_z7f_JA0R5rO84Hzwl9Y;1;4.7;71;[meal_takeaway,restaurant,food,point_of_interest,establishment];41.5609344;-8.4477957
+Azeite & Alho;ChIJP4EHiG1JJA0RZkw7zuL02UM;2;4.5;298;[restaurant,food,point_of_interest,establishment];41.558338;-8.444986
+Tasquinha Regional O Tipico;ChIJ5wLnGeH-JA0RqHvT1zdsibU;None;4.7;31;[restaurant,food,point_of_interest,establishment];41.5534897;-8.436255899999999
+Tasca do Brito;ChIJnQlK3v7-JA0RWEyn3MGS-Js;2;4.2;614;[restaurant,food,point_of_interest,establishment];41.5684751;-8.4355028
+Restaurante Churrasqueira Os Leões;ChIJuRdx2bX_JA0RiMbosu4-sxs;1;4.2;393;[restaurant,food,point_of_interest,establishment];41.5631331;-8.4443508
+Churrascaria Via Brasil;ChIJy2rzEQP_JA0REX4OqMUZFWo;None;4.2;242;[restaurant,food,point_of_interest,establishment];41.5616093;-8.4441761
+IL FIUME REAL;ChIJQU_z1N3_JA0R2uLoCY5lZdc;2;4.2;105;[restaurant,food,point_of_interest,establishment];41.5622073;-8.4411719
+São Frutuoso;ChIJEVFOVRz_JA0Rpf0ShsxeFHA;2;4.6;575;[restaurant,food,point_of_interest,establishment];41.5573121;-8.443116999999999
+Taberna Fonte Cova;ChIJ_-Vr7g3_JA0RaV4RPlGtbec;1;4.4;958;[restaurant,food,point_of_interest,establishment];41.5595179;-8.457773099999999
+Isa Sabores Restaurante - Pastelaria Unipessoal, Lda;ChIJ4UykduP-JA0RaKkuBZJwe5I;1;4.2;344;[restaurant,food,point_of_interest,establishment];41.5581992;-8.4358725
+S. Martinho Cafetaria;ChIJS47hKfn-JA0R7AxFNviqMpY;None;0;0;[restaurant,food,point_of_interest,establishment];41.5681314;-8.4344948
+Churrasqueira Xaranxa;ChIJaQBAlOH-JA0R_g0HQCXlwcQ;1;4.3;56;[restaurant,food,point_of_interest,establishment];41.5542395;-8.438729499999999
+Drinks;ChIJuTEyYvv_JA0RWHrfmmzcxQQ;2;4.4;136;[restaurant,food,point_of_interest,establishment];41.5551288;-8.4347604
+Braga marisco;ChIJadBH4Vj_JA0RT5H3qJRfNWs;None;5;7;[restaurant,food,point_of_interest,establishment];41.56948999999999;-8.43681
+Restaurante La Família;ChIJk-m_VpX_JA0RJ_18-ygunms;None;0;0;[restaurant,food,point_of_interest,establishment];41.5661882;-8.4504818
+Restaurante Arte E Sabores Dos Tempos, Lda.;ChIJp98Blxz_JA0RICHkHMZ6zB8;None;0;0;[restaurant,food,point_of_interest,establishment];41.5583377;-8.4449855
+COLISEU PIZZARIA;ChIJKfve-uD-JA0R_p7WK1NREFA;1;4.5;137;[bakery,restaurant,food,point_of_interest,store,establishment];41.5524514;-8.4371244
+Armando Silva & Barros, Lda.;ChIJ-WrfCuL-JA0RJRKHxDFLvp0;None;0;0;[restaurant,food,point_of_interest,establishment];41.5563165;-8.4401907
+Claricia eventos;ChIJt1FvbbL_JA0RsFd88qFkhuE;None;0;0;[restaurant,food,point_of_interest,establishment];41.5649879;-8.4497205
+Restaurante O Jacó;ChIJNf9Bed3-JA0Ruzp1n1k6KH8;2;4.6;966;[restaurant,food,point_of_interest,establishment];41.550925;-8.431949
+Rgcerq prestação de serviços, lda;ChIJ2RuFwZ7_JA0RdbEakZm2xDU;None;0;0;[restaurant,food,point_of_interest,establishment];41.5663383;-8.4394578
+THE TRUTH BRAGA;ChIJGT3Hm1__JA0RDkQ9jhRgNW4;None;3.5;4;[restaurant,food,point_of_interest,establishment];41.5498851;-8.431939
+Retrokitchen;ChIJ3ZTmtcP-JA0RabJWa70-U6g;2;4.7;912;[restaurant,food,point_of_interest,establishment];41.5485063;-8.4253457
+Alma Taberna;ChIJvwRZ_OH_JA0Ru6OF40YUPY4;None;5;10;[bar,restaurant,food,point_of_interest,establishment];41.5492237;-8.424265499999999
+Casa de Pasto das Carvalheiras;ChIJ7VQK2ML-JA0RlrdNuXKA7lc;2;4.5;714;[restaurant,food,point_of_interest,establishment];41.5485263;-8.428622599999999
+La Porta;ChIJjTzld_T_JA0RQUPd53Gzmzw;2;4.5;533;[restaurant,food,point_of_interest,establishment];41.5503658;-8.4290041
+Bira dos Namorados;ChIJafac_sL-JA0RvZzJyZcv23o;2;4.6;2625;[restaurant,food,point_of_interest,establishment];41.5487094;-8.426931999999999
+Taberna Do Félix;ChIJyRTlucL-JA0R4PXHJ-Sccls;2;4.4;393;[restaurant,food,point_of_interest,establishment];41.5499709;-8.4287882
+Restaurante Pecado da Sé;ChIJ3cnpPbv_JA0RTcTiF8Iq8Zw;None;4.7;138;[restaurant,food,point_of_interest,establishment];41.5495062;-8.4264242
+Dona Petisca;ChIJ922k6sL-JA0RCyfUlR8AWvs;2;4.6;718;[restaurant,food,point_of_interest,establishment];41.5498486;-8.4280755
+RUELA - Eat. Drink. Terrace;ChIJJSHGP0L_JA0R0z7KYQM-uT0;None;4.7;64;[restaurant,food,point_of_interest,establishment];41.5489941;-8.4275673
+Kartilho;ChIJf-LjzQ__JA0RGFaRgMIRQlw;None;4.7;172;[restaurant,food,point_of_interest,establishment];41.5488062;-8.4277664
+Taberna Londrina Braga;ChIJ8R8EG6L_JA0R7ggsrqz7ZC4;2;4.4;1192;[restaurant,food,point_of_interest,establishment];41.5502287;-8.4305676
+Marisqueira de Braga;ChIJtXYLasf-JA0RA7j0KS6zlKU;2;4.1;196;[restaurant,food,point_of_interest,establishment];41.5453121;-8.4197118
+Domus Vinum - Wine Bar & Tapas;ChIJew5CPt3-JA0Rb4DiUqL5TDs;2;4.4;522;[bar,restaurant,food,point_of_interest,establishment];41.5494537;-8.4306099
+Tomi Sushi;ChIJ9-891Ej_JA0RjIXSgjLLoqQ;None;5;13;[restaurant,food,point_of_interest,establishment];41.5425482;-8.4198943
+pPlace - Restaurant & Cocktail Bar;ChIJp0wgiaD_JA0R64-VuelnpXE;2;4.8;258;[restaurant,food,point_of_interest,establishment];41.5499597;-8.427691900000001
+Nocha's Tapas & Wine;ChIJJWI-GsL-JA0RKsgnOd1WhQE;1;4.7;260;[restaurant,food,point_of_interest,establishment];41.550482;-8.4245547
+Cozinha da Sé;ChIJYygSucL-JA0RCnQdgIeluEE;2;4.5;939;[restaurant,bar,food,point_of_interest,establishment];41.5492663;-8.4283761
+Time To;ChIJRxrF4ML-JA0RxV6sOaGZQQI;2;4.5;327;[restaurant,food,point_of_interest,establishment];41.5488677;-8.4279826
+Diana;ChIJm7mf2ML-JA0RVK02kNdbLs0;3;4.5;378;[restaurant,food,point_of_interest,establishment];41.5485798;-8.428458899999999
+Casinha dos Grelhados;ChIJpWhRvrz-JA0Rc-sHeqFxG64;1;4.8;177;[restaurant,food,point_of_interest,establishment];41.5489364;-8.4085424
+Ao Deus Dará restaurante;ChIJU0GH8Qr_JA0R6Eh6_e_b8iI;None;4.2;52;[restaurant,food,point_of_interest,establishment];41.5497264;-8.4278239
+Cervejaria Sagres;ChIJY0Q8i7z-JA0REZnA1ubx_zo;2;4.3;826;[restaurant,food,point_of_interest,establishment];41.5486101;-8.409934999999999
+Palatu Taperia;ChIJ43yX5ML-JA0RMAr7FCK_c0M;2;3.9;227;[restaurant,food,point_of_interest,establishment];41.5490374;-8.4273672
+Esquina do Mar;ChIJjY6WgS7_JA0RxUPU-J79ARg;None;4.1;26;[restaurant,food,point_of_interest,establishment];41.54909350000001;-8.4272143
+Otsu Biru;ChIJaftBnMH-JA0RIUYH7FeA8Xk;2;4.3;662;[restaurant,food,point_of_interest,establishment];41.5491615;-8.4229753
+Restaurante Santo Adrião;ChIJ0RCVd7r-JA0R9dMNKUp3GX0;1;4.2;193;[restaurant,food,point_of_interest,establishment];41.5421909;-8.411014999999999
+Sabor & Proveito;ChIJNxE3icr-JA0RctMarW3P9-c;None;3.9;68;[restaurant,food,point_of_interest,establishment];41.5340007;-8.4195855
+Barraco Chic - Café Restaurante;ChIJg-DC-sf_JA0R8ADKE4bTvhk;None;4;8;[restaurant,food,point_of_interest,establishment];41.5473011;-8.4180241
+Lakkana;ChIJMTbx5cL-JA0RGjtL9e3U3c8;2;4.5;410;[restaurant,food,point_of_interest,establishment];41.5492083;-8.4277164
+Centurium;ChIJ4-GmGMD-JA0RDDOchDicztc;2;4.4;350;[restaurant,food,point_of_interest,establishment];41.5512937;-8.419865999999999
+aTípica - Restaurante, Tapas Bar e Sabores de Portugal;ChIJT8knuML-JA0R2pkQDb2yqu0;None;4.5;551;[restaurant,bar,food,point_of_interest,establishment];41.54982589999999;-8.428696
+Brutto Fun Kitchen;ChIJOYqZBwf_JA0Rbaobnh2SNrE;None;4.8;12;[restaurant,food,point_of_interest,establishment];41.5494726;-8.4129427
+Tasquinha do Fujacal;ChIJB4CGOPP_JA0RlQzWfM80ZX0;1;4.8;659;[restaurant,food,point_of_interest,establishment];41.5432755;-8.422909599999999
+"O Pisco" Restaurante;ChIJh2QpvP7_JA0RcLoe4mxY1N8;None;4.7;10;[restaurant,food,point_of_interest,establishment];41.537014;-8.429501499999999
+Mimo´s Smoke House;ChIJld5S-C__JA0REUKDZH1Xs5A;None;4.6;129;[restaurant,food,point_of_interest,establishment];41.5494424;-8.4205258
+Canté Food & Friends;ChIJuZZKiyL_JA0RezfBvWcUxxA;None;4.8;91;[restaurant,food,point_of_interest,establishment];41.54957479999999;-8.4263145
+Atravessado - Restaurante & Petisqueira;ChIJ0YblmKX_JA0R5ge06ALvzS4;2;4.6;143;[restaurant,food,point_of_interest,establishment];41.548373;-8.4278474
+Rotiveminho;ChIJrZXRWcD-JA0R2_ofJw3-N6E;1;4.5;424;[restaurant,food,point_of_interest,establishment];41.54939479999999;-8.4205378
+Restaurante Trota's;ChIJ6yqO77_-JA0RQJwAIHOg2Ys;2;4.5;515;[restaurant,food,point_of_interest,establishment];41.5512209;-8.417572
+Taberna do Migaitas;ChIJx1_F78L-JA0R9WRouY_vOZY;2;4.2;713;[restaurant,food,point_of_interest,establishment];41.5493777;-8.4273806
+Aqua da Sé;ChIJWwq4-sL-JA0RZXzF3rfG-nM;None;3.9;13;[restaurant,food,point_of_interest,establishment];41.5491918;-8.4272853
+Caffé Italy;ChIJHXxYTTD_JA0Rn6-gjHPVWRc;2;4.4;500;[restaurant,food,point_of_interest,establishment];41.5515619;-8.4236739
+Bistrô Chefão Steak House;ChIJ48b0XZ__JA0RKGTzfcK5bxk;2;4.6;291;[restaurant,food,point_of_interest,establishment];41.5521991;-8.4239256
+Restaurante Aristides;ChIJUZ3blef-JA0RU1Jm6ZlCu88;2;4.5;219;[restaurant,food,point_of_interest,establishment];41.5518799;-8.431157100000002
+Alma d'Eça;ChIJqxRj2un-JA0RWlCZeg-fuMc;3;4.5;750;[restaurant,food,point_of_interest,establishment];41.5516637;-8.4259005
+Boa Boca;ChIJb7kYhL3-JA0RCpO-rLb6TCY;None;4.4;343;[restaurant,food,point_of_interest,establishment];41.5519822;-8.4105849
+Restaurante Cervejaria Senhora-a-Branca;ChIJd9y0AMD-JA0RlidfTv5Z2oE;2;4.1;166;[restaurant,food,point_of_interest,establishment];41.5514503;-8.418491699999999
+Telepizza Braga - Comida ao Domicílio;ChIJVWz3Ysf-JA0RwcM6h3qP-iU;None;4.2;273;[meal_delivery,meal_takeaway,restaurant,food,point_of_interest,establishment];41.5450875;-8.4185433
+Temple San;ChIJgz69SEX_JA0RUadn0kTdD2w;2;4.6;508;[restaurant,food,point_of_interest,establishment];41.5475024;-8.433433599999999
+Restaurante Churrasqueira Relento;ChIJxXHwiJX-JA0RBeOUjL6aj4A;2;4;230;[restaurant,food,point_of_interest,establishment];41.5521329;-8.4149137
+Café Astória;ChIJeRstZ__tJA0Rtd8psVZ0u-k;2;3.8;897;[restaurant,food,point_of_interest,establishment];41.5515447;-8.423556699999999
+Taberna da Fonte;ChIJQ6jCcgv_JA0R4hh9nKPOLRU;None;4.9;19;[restaurant,food,point_of_interest,establishment];41.5513747;-8.428109899999999
+Tabique;ChIJVed5TIX_JA0RSxQywRNbKcE;2;4.7;100;[restaurant,food,point_of_interest,establishment];41.5486569;-8.42489
+Marisqueira Docamar;ChIJpcHP2Lv-JA0RuuzmOweVGnw;2;4.3;885;[restaurant,food,point_of_interest,establishment];41.5456488;-8.4127891
+Churrasqueira Nacional;ChIJpzhSrOr_JA0R61F-17HMhgs;None;4.8;53;[restaurant,food,point_of_interest,establishment];41.540831;-8.4309356
+La Carte Tapas & Wine Bar;ChIJWU5Dlb7-JA0R5KQnmQZRrmE;None;4.6;79;[restaurant,food,point_of_interest,establishment];41.548722;-8.4142386
+PARTILHA by Mise en Place;ChIJhYSKxsz_JA0RMprz9y7Bjwo;None;4.5;28;[restaurant,food,point_of_interest,establishment];41.5500183;-8.4284251
+Taquería El Cascabel;ChIJzbv4bQT_JA0R-eos3WIOVYI;None;4.6;48;[restaurant,food,point_of_interest,establishment];41.5473651;-8.429689699999999
+Arcoense;ChIJZ5pupLv-JA0R2ViwWi3Nhko;3;4.6;668;[restaurant,food,point_of_interest,establishment];41.54596;-8.410466099999999
+Tábuas, Copos & outras cenas;ChIJJ8EwBcP-JA0R2Xy3rXLc3aU;2;4.6;339;[restaurant,food,point_of_interest,establishment];41.548813;-8.426859
+Restaurante Estrela;ChIJI1t0wzb_JA0RsF8WMh-Q-G8;1;4.5;131;[restaurant,food,point_of_interest,establishment];41.535707;-8.457913999999999
+Café Restaurante Pacifico;ChIJ_fRsI_tVJA0RAlEGOs3BP_E;1;4.3;272;[restaurant,food,point_of_interest,establishment];41.5347078;-8.4571293
+Burger King;ChIJr-nayNX-JA0R0t6bi_LAQ0E;1;4;1710;[meal_delivery,restaurant,food,point_of_interest,establishment];41.53457;-8.438193499999999
+Mimo's Smoke House;ChIJW91RT-H5JA0RcH9YftVcrd4;None;4.7;14;[restaurant,food,point_of_interest,establishment];41.5284912;-8.4463052
+Grelhados Maravilha;ChIJoRFOk9f-JA0Ro_LkXO029l4;None;4.6;150;[restaurant,food,point_of_interest,establishment];41.5394593;-8.4389615
+Restaurante Delfim;ChIJlX9lJy7_JA0R593lSrtYrHY;2;4.3;468;[restaurant,food,point_of_interest,establishment];41.5360816;-8.4513487
+Restaurante São Gregório;ChIJN-GG3w3_JA0RUUeBznQ2Ljs;None;4.6;36;[restaurant,food,point_of_interest,establishment];41.5411243;-8.443307299999999
+RESTAURANTE BOCAS - Gastronomia Portuguesa e Steakhouse;ChIJEz3bD9P4JA0RtHxpIGbA5mI;2;4.5;256;[restaurant,food,point_of_interest,establishment];41.5269465;-8.4482283
+Restaurante Fogo de Chão Braga;ChIJLRif7dL4JA0RzyjX74Xs8KE;2;4.2;1512;[restaurant,food,point_of_interest,establishment];41.5278458;-8.4497986
+MENDES Café Snack-Bar;ChIJ4QMItNX-JA0R2YxNLZBhwRI;1;4.4;147;[restaurant,food,point_of_interest,establishment];41.5339132;-8.4379137
+Tasca do Paiol;ChIJvcWuo834JA0RXh5mjW_kN8Q;2;4.3;493;[restaurant,food,point_of_interest,establishment];41.5265112;-8.4531011
+City Rio;ChIJ-YtjaNX-JA0RySzbedqcsBk;2;4.2;900;[restaurant,food,point_of_interest,establishment];41.5318349;-8.439423
+deliciasdanossaterra;ChIJG8YF3Zf_JA0RwNar3YdDM6A;None;0;0;[restaurant,food,point_of_interest,establishment];41.5349839;-8.456693699999999
+Ferreirense;ChIJJ4oUoyr5JA0RDeEdsooruxo;1;4.2;301;[restaurant,food,point_of_interest,establishment];41.5294333;-8.440068499999999
+Restaurante Quinta de Marvila;ChIJHX1-31P_JA0RDNA-ae0Bxgs;1;4.3;125;[restaurant,food,point_of_interest,establishment];41.5346797;-8.4504139
+Bela Mesa;ChIJS2JeBTP_JA0R5vzT6HgW2w4;1;4.1;197;[restaurant,food,point_of_interest,establishment];41.5311899;-8.4547379
+Casa Garrafinha (Jeremias);ChIJlXKLDTH_JA0RGxzN2fjXP-4;2;4.4;155;[restaurant,food,point_of_interest,establishment];41.535778;-8.4546289
+Restaurante Asiático - BRAGA 999;ChIJn1nYJ9H-JA0R-6KFPppVTNk;1;4.2;1010;[restaurant,food,point_of_interest,establishment];41.5380443;-8.434163999999999
+Sal e Sabor Lda - Churrasqueira Africana;ChIJY85C29D-JA0REjt6JR7b_Vk;1;4.1;237;[restaurant,food,point_of_interest,establishment];41.5382591;-8.433956799999999
+Rosa Pimenta Marques (ferreiros);ChIJD0e5oyr5JA0RF0qTcpBXwP8;None;4.3;3;[restaurant,food,point_of_interest,establishment];41.5294657;-8.440121699999999
+Per tutti;ChIJQVfpdyL5JA0RwujlaRPLm1E;None;5;2;[restaurant,food,point_of_interest,establishment];41.5280399;-8.4482631
+Grelha D'ouro;ChIJUUsCGHX_JA0RW4gVArBz9P4;None;4.6;9;[restaurant,food,point_of_interest,establishment];41.532774;-8.4467006
+Asia Wok - Restaurante Buffet;ChIJjWj58Xv5JA0RxKVwKIWDvtI;1;4.2;494;[restaurant,food,point_of_interest,establishment];41.5269435;-8.448205699999999
+Sabores das Carnes;ChIJwR0jeBr_JA0Rt3yhr_YYa1s;None;3;2;[restaurant,food,point_of_interest,establishment];41.5395635;-8.4339791
+Restaurante Chavaes;ChIJq39zbeL_JA0RuZgIZZNLx_o;None;4.8;6;[restaurant,food,point_of_interest,establishment];41.5396618;-8.4337033
+Restaurante Churrasqueira Falcões;ChIJR6PE1dv-JA0RFOYbT6NERiI;1;4.4;142;[restaurant,food,point_of_interest,establishment];41.5436134;-8.4346043
+Loja 2;ChIJOSjjJTj_JA0Rf0qLjaL8Dwc;None;0;0;[restaurant,food,point_of_interest,establishment];41.5365022;-8.441401599999999
+Ponte Pedrinha;ChIJXwNfdtH-JA0RkQ10L9KAkuE;1;4.5;68;[restaurant,food,point_of_interest,establishment];41.5367608;-8.4323514
+Sushi Rão - Braga;ChIJO0xaw2v_JA0RwXPTEqQ_jMg;None;4.4;30;[restaurant,food,point_of_interest,establishment];41.5432061;-8.4357905
+Friends Food & Drinks;ChIJS5BHvtL9JA0RIFhZXninPlg;None;4.4;50;[restaurant,meal_takeaway,bar,food,point_of_interest,store,establishment];41.5367368;-8.431256
+S. R., Sónia E Ruben, Restauração, Lda.;ChIJ-zVXvtD-JA0R88fX1X3_zPk;None;0;0;[restaurant,food,point_of_interest,establishment];41.539704;-8.4336968
