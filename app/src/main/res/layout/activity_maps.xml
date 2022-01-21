@@ -33,6 +33,13 @@
             android:layout_gravity="bottom"
             android:onClick="SearchArea"
             android:text="Search" />
+        <Button
+            android:id="@+id/SearchBetter"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom"
+            android:onClick="Search"
+            android:text="Improved\nSearch" />
 
         <Button
             android:id="@+id/zoomOut"

@@ -4,10 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.location.Address;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.teste02.LocationAndroid.GetLocationUser;
 import com.example.teste02.LocationAndroid.NearbyRestaurants;
+import com.example.teste02.NearbySearch.DownloadUrl;
+import com.example.teste02.NearbySearch.GetNearbyPlacesData;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -78,6 +84,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng myLocation = new LatLng(41.553016, -8.427365);
         googleMap.addMarker(new MarkerOptions().position(myLocation).title("You are here!"));
 
+        NearbyRestaurants.maxRange = 500f;
         List<Restaurante> l =NearbyRestaurants.showRestaurantesRadius(mapaRestaurantes,myLocation.latitude,myLocation.longitude);
         for (Restaurante r: l)
         {
@@ -85,5 +92,32 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,15f));
+    }
+
+
+    private boolean CheckGooglePlayServices() {
+        GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
+        int result = googleAPI.isGooglePlayServicesAvailable(this);
+        if(result != ConnectionResult.SUCCESS) {
+            if(googleAPI.isUserResolvableError(result)) {
+                googleAPI.getErrorDialog(this, result,0).show();
+            }
+            return false;
+        }
+        return true;
+    }
+
+    public void Search(View view)
+    {
+        Log.d("onClick", "Button is Clicked");
+        googleMap.clear();
+        String url = DownloadUrl.getUrl(41.553016, -8.427365, "restaurant",500);
+        Object[] DataTransfer = new Object[2];
+        DataTransfer[0] = googleMap;
+        DataTransfer[1] = url;
+        Log.d("onClick", url);
+        GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+        getNearbyPlacesData.execute(DataTransfer);
+        Toast.makeText(MapsActivity.this,"Nearby Restaurants", Toast.LENGTH_LONG).show();
     }
 }
