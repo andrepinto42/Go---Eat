@@ -1,10 +1,15 @@
 package com.example.teste02;
 
-import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
+import android.location.Address;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.teste02.LocationAndroid.GetLocationUser;
+import com.example.teste02.LocationAndroid.NearbyRestaurants;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -13,13 +18,15 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.teste02.databinding.ActivityMapsBinding;
 
+import java.util.List;
 import java.util.Map;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
     private ActivityMapsBinding binding;
-    Map<String,Restaurante> mapaRestaurantes;
+    Map<String, Restaurante> mapaRestaurantes;
+    FusedLocationProviderClient fusedLocationProviderClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,39 +39,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        //Getting fusedLocation
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
 
         mapaRestaurantes = Parser.ParseRestaurante(this);
+
+        GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
+
         int i =0;
-        for (Restaurante r :
-                mapaRestaurantes.values()) {
-            AddPinPoint(r);
 
-            i++;
-            if (i == 3) break;
-        }
     }
-
-
 
     private void AddPinPoint(Restaurante restaurante) {
         LatLng teste = new LatLng(restaurante.getLatitude(), restaurante.getLongitude());
         googleMap.addMarker(new MarkerOptions().position(teste).title(restaurante.getNome()));
         System.out.println("SET MARKER -> " + restaurante.getNome());
-        //googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(teste,1f));
     }
 
     public void ButonClick(View view) {
@@ -76,5 +72,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         {
             googleMap.animateCamera(CameraUpdateFactory.zoomOut());
         }
+    }
+
+    public void SearchArea(View view) {
+        LatLng myLocation = new LatLng(41.553016, -8.427365);
+        googleMap.addMarker(new MarkerOptions().position(myLocation).title("You are here!"));
+
+        List<Restaurante> l =NearbyRestaurants.showRestaurantesRadius(mapaRestaurantes,myLocation.latitude,myLocation.longitude);
+        for (Restaurante r: l)
+        {
+            AddPinPoint(r);
+        }
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,15f));
     }
 }

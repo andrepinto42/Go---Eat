@@ -17,7 +17,6 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-
         <Button
             android:id="@+id/zoomIn"
             android:layout_width="wrap_content"
@@ -28,12 +27,21 @@
             android:text="Zoom in" />
 
         <Button
+            android:id="@+id/Search"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom"
+            android:onClick="SearchArea"
+            android:text="Search" />
+
+        <Button
             android:id="@+id/zoomOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="ButonClick"
             android:text="Zoom Out" />
+
     </LinearLayout>
 
 </LinearLayout>
