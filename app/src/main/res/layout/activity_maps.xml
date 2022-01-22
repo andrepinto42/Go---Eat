@@ -12,17 +12,22 @@
         android:layout_height="400dp"
         tools:context=".MapsActivity" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+
         <Button
             android:id="@+id/zoomIn"
-            android:layout_width="wrap_content"
+            android:layout_width="112dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_alignParentTop="true"
 
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="59dp"
+            android:layout_marginEnd="292dp"
+            android:layout_weight="1"
             android:onClick="ButonClick"
             android:text="Zoom in" />
 
@@ -30,7 +35,10 @@
             android:id="@+id/Search"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_gravity="bottom"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="20dp"
             android:onClick="SearchArea"
             android:text="Search" />
 
@@ -38,10 +46,36 @@
             android:id="@+id/zoomOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="11dp"
             android:layout_weight="1"
             android:onClick="ButonClick"
             android:text="Zoom Out" />
 
-    </LinearLayout>
+        <EditText
+            android:id="@+id/textEditRestaurant"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="111dp"
+            android:layout_marginTop="141dp"
+            android:minHeight="48dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="7dp"
+            android:layout_marginBottom="11dp"
+            android:layout_toEndOf="@+id/textEditRestaurant"
+            android:onClick="procuraRestauranteNome"
+            android:text="PROCURAR" />
+
+    </RelativeLayout>
 
 </LinearLayout>

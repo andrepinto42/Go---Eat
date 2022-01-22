@@ -9,6 +9,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.Toast;
 
 import com.example.teste02.LocationAndroid.GetLocationUser;
 import com.example.teste02.LocationAndroid.NearbyRestaurants;
@@ -116,5 +119,49 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return super.onOptionsItemSelected(item);
     }
 
-    //public void
+
+    RatingBar ratingStars;
+    public void starBarMethod(){
+
+        ratingStars = findViewById(R.id.ratingBar);
+        ratingStars = findViewById(R.id.ratingBar);
+        ratingStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                int rating = (int) v;
+                String msg = null;
+
+                switch (rating){
+                    case 1:
+                        msg = ";(";
+                        break;
+                    case 2:
+                        msg = ":(";
+                        break;
+                    case 3:
+                        msg = ":|";
+                        break;
+                    case 4:
+                        msg = ":)";
+                        break;
+                    case 5:
+                        msg = ":D";
+                        break;
+                }
+                Toast.makeText(MapsActivity.this,msg,Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //metodo ligado ao button(android:onClick="procuraRestauranteNome")
+    public void procuraRestauranteNome(View view) {
+        EditText etNome = findViewById(R.id.textEditRestaurant);
+
+        for(Restaurante r : mapaRestaurantes.values()){
+            if(r.getNome().equals(etNome)){
+                LatLng rest = new LatLng(r.getLatitude(),r.getLongitude());
+                googleMap.addMarker(new MarkerOptions().position(rest).title(r.getNome()));//mudar o icon / cor??
+            }
+        }
+    }
 }
