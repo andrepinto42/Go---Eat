@@ -172,6 +172,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.mymenu, menu);
 
+        menuInflater.inflate(R.menu.preferencias, menu);
+        MenuItem item_pizza = menu.findItem(R.id.manuPizza);
+        MenuItem item_Marisco = menu.findItem(R.id.manuMarisco);
+        MenuItem item_Churrasco = menu.findItem(R.id.menuChurrasco);
+        if(filterOption.equals("pizza")){
+            item_pizza.setChecked(true);
+
+        }else if(filterOption.equals("marisco")){
+            item_Marisco.setChecked(true);
+
+        }else if(filterOption.equals("churrasco")){
+            item_Churrasco.setChecked(true);
+        }
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -248,5 +262,37 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 googleMap.addMarker(new MarkerOptions().position(rest).title(r.getNome()));//mudar o icon / cor??
             }
         }
+    }
+
+    public void sellectFilter(View view){
+        registerForContextMenu(view);
+        openContextMenu(view);
+
+    }
+
+    String filterOption = null;
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.manuPizza:
+                Toast.makeText(getApplicationContext(),"Pizzeria sellected",Toast.LENGTH_SHORT).show();
+                item.setChecked(true);
+                filterOption = "pizza";
+                return true;
+            case R.id.manuMarisco:
+                Toast.makeText(getApplicationContext(),"Marisqueira sellected",Toast.LENGTH_SHORT).show();
+                item.setChecked(true);
+                filterOption = "marisco";
+                return true;
+            case R.id.menuChurrasco:
+                Toast.makeText(getApplicationContext(),"Churrasqueria sellected",Toast.LENGTH_SHORT).show();
+                item.setChecked(true);
+                filterOption = "churrasc";
+                return true;
+
+                
+        }
+        return super.onContextItemSelected(item);
     }
 }

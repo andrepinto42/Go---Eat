@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menuChurrasco"
+        android:checkableBeahavior="single"
+        android:title="Churrasco"/>
+
+    <item android:id="@+id/manuMarisco"
+        android:checkableBeahavior="single"
+        android:title="Marisco"/>
+
+    <item android:id="@+id/manuPizza"
+        android:checkableBeahavior="single"
+        android:title="Pizza"/>
+
+</menu>
