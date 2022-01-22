@@ -13,15 +13,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
+import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.example.teste02.Fragments.FragmentAdapter;
+import com.example.teste02.LocationAndroid.GetLocationUser;
 import com.example.teste02.LocationAndroid.NearbyRestaurants;
 import com.example.teste02.NearbySearch.DownloadUrl;
 import com.example.teste02.NearbySearch.GetNearbyPlacesData;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -50,23 +54,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_maps);
 
 
-        TabInitializer();
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+       SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
 
 
         //Getting fusedLocation
-        //fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
     }
 
+    //Metodo por enquanto nao vai ser usado
     private void TabInitializer() {
 
-        tabLayout = findViewById(R.id.tab_layout);
-        pager2 = findViewById(R.id.view_pager2);
+        //tabLayout = findViewById(R.id.tab_layout);
+        //pager2 = findViewById(R.id.view_pager2);
 
         FragmentManager fm = getSupportFragmentManager();
         adapter = new FragmentAdapter(fm,getLifecycle());
@@ -107,7 +111,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
 
-        mapaRestaurantes = Parser.ParseRestaurante(this);
+        //mapaRestaurantes = Parser.ParseRestaurante(this);
 
         //Getting Current Location
         /*locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -124,7 +128,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }*/
 
         //Inutil por agora buscar a localizacao atraves deste metodo
-        //GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
+        GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
     }
 
     private void AddPinPoint(Restaurante restaurante) {
@@ -134,6 +138,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public void ButonClick(View view) {
+        if(GetLocationUser.userAddress != null)
+        {
+            Log.d("Location", "ButonClick: "+GetLocationUser.userAddress.getLatitude());
+        }
         if (view.getId() == R.id.zoomIn)
         {
             googleMap.animateCamera(CameraUpdateFactory.zoomIn());
@@ -142,20 +150,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         {
             googleMap.animateCamera(CameraUpdateFactory.zoomOut());
         }
-    }
-
-    public void SearchArea(View view) {
-        LatLng myLocation = new LatLng(41.553016, -8.427365);
-        googleMap.addMarker(new MarkerOptions().position(myLocation).title("You are here!"));
-
-        NearbyRestaurants.maxRange = 500f;
-        List<Restaurante> l =NearbyRestaurants.showRestaurantesRadius(mapaRestaurantes,myLocation.latitude,myLocation.longitude);
-        for (Restaurante r: l)
-        {
-            AddPinPoint(r);
-        }
-
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,15f));
     }
 
 
@@ -202,15 +196,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return super.onOptionsItemSelected(item);
     }
 
-    public void AvaliarRating(View view)
-    {
-        RatingBar ratingStars = findViewById(R.id.ratingBar);
+
+
+    RatingBar ratingStars;
+    public void starBarMethod(){
+
+        ratingStars = findViewById(R.id.ratingBar);
+        ratingStars = findViewById(R.id.ratingBar);
         ratingStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 int rating = (int) v;
-                String msg = "";
-                Log.d("Rate", "onRatingChanged: "+rating);
+
+                String msg = null;
+
                 switch (rating){
                     case 1:
                         msg = ";(";
@@ -227,9 +226,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     case 5:
                         msg = ":D";
                         break;
-                    default:
-                        msg = ":/";
-                        break;
+
                 }
                 Toast.makeText(MapsActivity.this,msg,Toast.LENGTH_SHORT).show();
             }
@@ -241,4 +238,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d("LocationChanged", "onLocationChanged: "+location.getLatitude() +" ----- " +location.getLongitude());
     }
 
+    //metodo ligado ao button(android:onClick="procuraRestauranteNome")
+    public void procuraRestauranteNome(View view) {
+        EditText etNome = findViewById(R.id.textEditRestaurant);
+
+        for(Restaurante r : mapaRestaurantes.values()){
+            if(r.getNome().equals(etNome)){
+                LatLng rest = new LatLng(r.getLatitude(),r.getLongitude());
+                googleMap.addMarker(new MarkerOptions().position(rest).title(r.getNome()));//mudar o icon / cor??
+            }
+        }
+    }
 }

@@ -7,7 +7,6 @@ import android.location.Geocoder;
 import android.location.Location;
 
 import androidx.core.app.ActivityCompat;
-
 import com.example.teste02.MapsActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.tasks.Task;

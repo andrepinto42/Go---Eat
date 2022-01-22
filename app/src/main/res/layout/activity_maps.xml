@@ -10,68 +10,82 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        tools:context=".MapsActivity" />
+        android:layout_height="300dp"
+        tools:context=".MapsActivity"
+        tools:layout="@layout/activity_maps" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            map:layout_constraintBottom_toBottomOf="@+id/view_pager2"
-            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pager2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/tab_layout"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="10dp">
-
-            <Button
-                android:id="@+id/SearchBetter"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_gravity="bottom"
-                android:onClick="Search"
-                android:text="Improved\nSearch" />
-
-            <Button
-                android:id="@+id/Search"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_gravity="bottom"
-                android:onClick="SearchArea"
-                android:text="Search" />
-        </androidx.viewpager2.widget.ViewPager2>
 
         <Button
-                android:id="@+id/zoomIn"
-                android:layout_width="56dp"
-                android:layout_height="48dp"
-
-                android:layout_marginBottom="12dp"
-                android:layout_weight="1"
-                android:onClick="ButonClick"
-                android:text="+" />
+            android:id="@+id/SearchBetter"
+            android:layout_width="118dp"
+            android:layout_height="82dp"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="60dp"
+            android:onClick="Search"
+            android:text="Improved\nSearch"
+            map:layout_constraintBottom_toTopOf="@+id/button3"
+            map:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/zoomOut"
             android:layout_width="49dp"
             android:layout_height="48dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="4dp"
             android:layout_weight="1"
             android:onClick="ButonClick"
             android:text="-"
-            map:layout_constraintEnd_toEndOf="parent"
-            map:layout_constraintHorizontal_bias="0.651"
-            map:layout_constraintStart_toEndOf="@+id/zoomIn" />
+            map:layout_constraintBottom_toTopOf="@+id/SearchBetter"
+            map:layout_constraintEnd_toEndOf="parent" />
 
+
+        <Button
+            android:id="@+id/zoomIn"
+            android:layout_width="56dp"
+            android:layout_height="48dp"
+
+            android:layout_weight="1"
+            android:onClick="ButonClick"
+            android:text="+"
+            map:layout_constraintEnd_toStartOf="@+id/zoomOut"
+            map:layout_constraintHorizontal_bias="0.376"
+            map:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="29dp" />
+
+        <EditText
+            android:id="@+id/textEditRestaurant"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="bottom"
+            android:minHeight="48dp"
+            map:layout_constraintBottom_toBottomOf="parent"
+            map:layout_constraintEnd_toStartOf="@+id/button3"
+            map:layout_constraintStart_toStartOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="12dp"
+            android:layout_toEndOf="@+id/textEditRestaurant"
+            android:onClick="procuraRestauranteNome"
+            android:text="PROCURAR"
+            map:layout_constraintBottom_toBottomOf="parent"
+            map:layout_constraintEnd_toEndOf="parent"
+            map:layout_constraintHorizontal_bias="0.469"
+            map:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>
