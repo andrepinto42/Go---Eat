@@ -4,6 +4,7 @@ package com.example.teste02;
 public class Restaurante {
     private String nome;
     private String ID;
+    private String vicinity;
     private int priceLevel;
     private float rating;
     private int numberRating;
@@ -21,6 +22,14 @@ public class Restaurante {
         this.rating = rating;
         this.numberRating = numberRating;
         this.keywords = keywords;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Restaurante(String placeName, String vicinity, float latitude, float longitude, String reference) {
+        this.nome = placeName;
+        this.ID = reference;
+        this.vicinity = vicinity;
         this.latitude = latitude;
         this.longitude = longitude;
     }

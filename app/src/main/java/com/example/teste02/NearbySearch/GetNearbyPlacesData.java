@@ -3,6 +3,7 @@ package com.example.teste02.NearbySearch;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.teste02.MapsActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -55,13 +56,18 @@ public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
             String vicinity = googlePlace.get("vicinity");
             LatLng latLng = new LatLng(lat, lng);
             markerOptions.position(latLng);
-            markerOptions.title(placeName + " : " + vicinity);
+            markerOptions.title(placeName);
             mMap.addMarker(markerOptions);
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 
-            //move map camera ??? can get a little repeating
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
         }
+        MarkerOptions markerOptions = new MarkerOptions();
+        LatLng userLocation = new LatLng(MapsActivity.userLat,MapsActivity.userLon);
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+        markerOptions.position(userLocation);
+
+        mMap.addMarker(markerOptions);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng( userLocation ) );
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
     }
 }

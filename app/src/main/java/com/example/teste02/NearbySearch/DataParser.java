@@ -2,6 +2,8 @@ package com.example.teste02.NearbySearch;
 
 import android.util.Log;
 
+import com.example.teste02.Restaurante;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,10 +13,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataParser {
+    public static HashMap<String,Restaurante> mapNearbyRestaurant = null;
+
     public List<HashMap<String, String>> parse(String jsonData) {
         JSONArray jsonArray = null;
         JSONObject jsonObject;
-
+        mapNearbyRestaurant = new HashMap<String,Restaurante>();
         try {
             Log.d("Places", "parse");
             jsonObject = new JSONObject((String) jsonData);
@@ -71,7 +75,12 @@ public class DataParser {
             googlePlaceMap.put("lat", latitude);
             googlePlaceMap.put("lng", longitude);
             googlePlaceMap.put("reference", reference);
-            Log.d("getPlace", "Putting Places");
+
+            //Adicionar o Restaurante ao mapa
+            Restaurante r = new Restaurante(placeName,vicinity,Float.parseFloat(latitude),Float.parseFloat( longitude),reference );
+            mapNearbyRestaurant.put(placeName,r);
+
+            Log.d("getPlace", "Inserted " + placeName);
         } catch (JSONException e) {
             Log.d("getPlace", "Error");
             e.printStackTrace();

@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.teste02.Fragments.FragmentAdapter;
 import com.example.teste02.LocationAndroid.GetLocationUser;
 import com.example.teste02.LocationAndroid.NearbyRestaurants;
+import com.example.teste02.NearbySearch.DataParser;
 import com.example.teste02.NearbySearch.DownloadUrl;
 import com.example.teste02.NearbySearch.GetNearbyPlacesData;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -73,10 +74,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         googleMap.setOnMarkerClickListener(marker -> {
 
-            // on marker click we are getting the title of our marker
-            // which is clicked and displaying it in a toast message.
             String markerName = marker.getTitle();
-            Toast.makeText(MapsActivity.this, "Clicked location is " + markerName, Toast.LENGTH_SHORT).show();
+            if (DataParser.mapNearbyRestaurant == null || DataParser.mapNearbyRestaurant.get(markerName) == null) return false;
+            Restaurante r = DataParser.mapNearbyRestaurant.get(markerName);
+            Toast.makeText(MapsActivity.this, "Clicked location is " +r.getNome() , Toast.LENGTH_SHORT).show();
             return false;
         });
 
@@ -123,6 +124,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.mymenu, menu);
+
 
         menuInflater.inflate(R.menu.preferencias, menu);
         MenuItem item_pizza = menu.findItem(R.id.manuPizza);
@@ -218,7 +220,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    String filterOption = null;
+    String filterOption = "";
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
