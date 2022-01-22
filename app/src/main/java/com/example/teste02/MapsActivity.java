@@ -1,53 +1,105 @@
 package com.example.teste02;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager2.widget.ViewPager2;
 
-import android.location.Address;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
-import com.example.teste02.LocationAndroid.GetLocationUser;
+import com.example.teste02.Fragments.FragmentAdapter;
 import com.example.teste02.LocationAndroid.NearbyRestaurants;
 import com.example.teste02.NearbySearch.DownloadUrl;
 import com.example.teste02.NearbySearch.GetNearbyPlacesData;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.teste02.databinding.ActivityMapsBinding;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 import java.util.Map;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
     private GoogleMap googleMap;
-    private ActivityMapsBinding binding;
     Map<String, Restaurante> mapaRestaurantes;
     FusedLocationProviderClient fusedLocationProviderClient;
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
 
+    TabLayout tabLayout;
+    ViewPager2 pager2;
+    FragmentAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
 
-        binding = ActivityMapsBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+
+        TabInitializer();
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
+
         //Getting fusedLocation
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
+        //fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
+    }
+
+    private void TabInitializer() {
+
+        tabLayout = findViewById(R.id.tab_layout);
+        pager2 = findViewById(R.id.view_pager2);
+
+        FragmentManager fm = getSupportFragmentManager();
+        adapter = new FragmentAdapter(fm,getLifecycle());
+        pager2.setAdapter(adapter);
+
+        tabLayout.addTab(tabLayout.newTab().setText("First"));
+        tabLayout.addTab(tabLayout.newTab().setText("Second"));
+        tabLayout.addTab(tabLayout.newTab().setText("Third"));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                Log.d("TAB SELECTED", "onTabSelected: Here");
+                pager2.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        pager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
     }
 
 
@@ -57,10 +109,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mapaRestaurantes = Parser.ParseRestaurante(this);
 
-        GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
+        //Getting Current Location
+        /*locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        int i =0;
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            //Permission has been denied
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+        }
+        else
+        {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (android.location.LocationListener) this);
+        }*/
 
+        //Inutil por agora buscar a localizacao atraves deste metodo
+        //GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
     }
 
     private void AddPinPoint(Restaurante restaurante) {
@@ -95,18 +159,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-    private boolean CheckGooglePlayServices() {
-        GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
-        int result = googleAPI.isGooglePlayServicesAvailable(this);
-        if(result != ConnectionResult.SUCCESS) {
-            if(googleAPI.isUserResolvableError(result)) {
-                googleAPI.getErrorDialog(this, result,0).show();
-            }
-            return false;
-        }
-        return true;
-    }
-
     public void Search(View view)
     {
         Log.d("onClick", "Button is Clicked");
@@ -120,4 +172,73 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         getNearbyPlacesData.execute(DataTransfer);
         Toast.makeText(MapsActivity.this,"Nearby Restaurants", Toast.LENGTH_LONG).show();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.mymenu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.home:
+                setContentView(R.layout.activity_maps);
+                break;
+            case R.id.secondlayout:
+                setContentView(R.layout.secondlayout);
+                break;
+            case R.id.thirdlayout:
+                setContentView(R.layout.thirdlayout);
+                break;
+            case R.id.exit:
+                finish();
+                break;
+            default:
+                return false;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void AvaliarRating(View view)
+    {
+        RatingBar ratingStars = findViewById(R.id.ratingBar);
+        ratingStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                int rating = (int) v;
+                String msg = "";
+                Log.d("Rate", "onRatingChanged: "+rating);
+                switch (rating){
+                    case 1:
+                        msg = ";(";
+                        break;
+                    case 2:
+                        msg = ":(";
+                        break;
+                    case 3:
+                        msg = ":|";
+                        break;
+                    case 4:
+                        msg = ":)";
+                        break;
+                    case 5:
+                        msg = ":D";
+                        break;
+                    default:
+                        msg = ":/";
+                        break;
+                }
+                Toast.makeText(MapsActivity.this,msg,Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        Log.d("LocationChanged", "onLocationChanged: "+location.getLatitude() +" ----- " +location.getLongitude());
+    }
+
 }

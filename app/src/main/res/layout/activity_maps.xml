@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mapFragmentContainer">
 
     <fragment
         android:id="@+id/map"
@@ -12,43 +13,65 @@
         android:layout_height="400dp"
         tools:context=".MapsActivity" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/zoomIn"
-            android:layout_width="wrap_content"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            map:layout_constraintBottom_toBottomOf="@+id/view_pager2"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
-            android:onClick="ButonClick"
-            android:text="Zoom in" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tab_layout"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="10dp">
+
+            <Button
+                android:id="@+id/SearchBetter"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="bottom"
+                android:onClick="Search"
+                android:text="Improved\nSearch" />
+
+            <Button
+                android:id="@+id/Search"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="bottom"
+                android:onClick="SearchArea"
+                android:text="Search" />
+        </androidx.viewpager2.widget.ViewPager2>
 
         <Button
-            android:id="@+id/Search"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_gravity="bottom"
-            android:onClick="SearchArea"
-            android:text="Search" />
-        <Button
-            android:id="@+id/SearchBetter"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_gravity="bottom"
-            android:onClick="Search"
-            android:text="Improved\nSearch" />
+                android:id="@+id/zoomIn"
+                android:layout_width="56dp"
+                android:layout_height="48dp"
+
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:onClick="ButonClick"
+                android:text="+" />
 
         <Button
             android:id="@+id/zoomOut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="49dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1"
             android:onClick="ButonClick"
-            android:text="Zoom Out" />
+            android:text="-"
+            map:layout_constraintEnd_toEndOf="parent"
+            map:layout_constraintHorizontal_bias="0.651"
+            map:layout_constraintStart_toEndOf="@+id/zoomIn" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

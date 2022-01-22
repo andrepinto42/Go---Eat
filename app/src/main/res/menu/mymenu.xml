@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home"
+        android:title="Home"/>
+
+    <item android:id="@+id/secondlayout"
+        android:title="Filters"/>
+
+    <item android:id="@+id/thirdlayout"
+        android:title="Stars"/>
+
+    <item android:id="@+id/exit"
+        android:title="Exit"/>
+</menu>
