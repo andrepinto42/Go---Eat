@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/andre/AndroidStudioProjects/Teste02/app/src/main/res/layout/activity_maps.xml" value="0.33" />
-        <entry key="..\:/Users/andre/AndroidStudioProjects/Teste02/app/src/main/res/layout/fragment_first.xml" value="0.24010416666666667" />
-        <entry key="..\:/Users/andre/AndroidStudioProjects/Teste02/app/src/main/res/layout/fragment_second.xml" value="0.24010416666666667" />
-        <entry key="..\:/Users/andre/AndroidStudioProjects/Teste02/app/src/main/res/layout/fragment_third.xml" value="0.24010416666666667" />
-        <entry key="..\:/Users/andre/AndroidStudioProjects/Teste02/app/src/main/res/layout/secondlayout.xml" value="0.33" />
-        <entry key="..\:/Users/andre/AndroidStudioProjects/Teste02/app/src/main/res/layout/thirdlayout.xml" value="0.1921875" />
-        <entry key="..\:/Users/andre/AndroidStudioProjects/Teste02/app/src/main/res/menu/mymenu.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/andre/AndroidStudioProjects/Teste02/app/src/main/res/layout/activity_maps.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/fragment_third.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/secondlayout.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/thirdlayout.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/mymenu.xml" value="0.353125" />
+        <entry key="app/src/main/res/menu/preferencias.xml" value="0.353125" />
       </map>
     </option>
   </component>
