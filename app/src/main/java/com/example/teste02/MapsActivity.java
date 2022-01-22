@@ -37,73 +37,30 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.List;
 import java.util.Map;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
     Map<String, Restaurante> mapaRestaurantes;
     FusedLocationProviderClient fusedLocationProviderClient;
-    protected LocationManager locationManager;
-    protected LocationListener locationListener;
 
-    TabLayout tabLayout;
-    ViewPager2 pager2;
-    FragmentAdapter adapter;
+    public static double userLat=0f;
+    public static double userLon=0f;
+    EditText editTextSearch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-
+        //Texto de procura
+        editTextSearch = findViewById(R.id.textEditRestaurant);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
-
         //Getting fusedLocation
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
-    }
-
-    //Metodo por enquanto nao vai ser usado
-    private void TabInitializer() {
-
-        //tabLayout = findViewById(R.id.tab_layout);
-        //pager2 = findViewById(R.id.view_pager2);
-
-        FragmentManager fm = getSupportFragmentManager();
-        adapter = new FragmentAdapter(fm,getLifecycle());
-        pager2.setAdapter(adapter);
-
-        tabLayout.addTab(tabLayout.newTab().setText("First"));
-        tabLayout.addTab(tabLayout.newTab().setText("Second"));
-        tabLayout.addTab(tabLayout.newTab().setText("Third"));
-
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                Log.d("TAB SELECTED", "onTabSelected: Here");
-                pager2.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-        pager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                tabLayout.selectTab(tabLayout.getTabAt(position));
-            }
-        });
     }
 
 
@@ -111,23 +68,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
 
-        //mapaRestaurantes = Parser.ParseRestaurante(this);
-
-        //Getting Current Location
-        /*locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            //Permission has been denied
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
-        }
-        else
-        {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (android.location.LocationListener) this);
-        }*/
-
-        //Inutil por agora buscar a localizacao atraves deste metodo
         GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
     }
 
@@ -138,10 +78,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public void ButonClick(View view) {
-        if(GetLocationUser.userAddress != null)
-        {
-            Log.d("Location", "ButonClick: "+GetLocationUser.userAddress.getLatitude());
-        }
         if (view.getId() == R.id.zoomIn)
         {
             googleMap.animateCamera(CameraUpdateFactory.zoomIn());
@@ -153,11 +89,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-    public void Search(View view)
+    public void NearbySearch(View view)
     {
+        String keyword = "restaurant";
+        String textkeyword = editTextSearch.getText().toString();
+        if (!textkeyword.equals(""))
+            keyword = textkeyword;
+
         Log.d("onClick", "Button is Clicked");
         googleMap.clear();
-        String url = DownloadUrl.getUrl(41.553016, -8.427365, "restaurant",500);
+        String url = DownloadUrl.getUrl(userLat, userLon, keyword,500);
         Object[] DataTransfer = new Object[2];
         DataTransfer[0] = googleMap;
         DataTransfer[1] = url;
@@ -233,10 +174,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
     }
 
-    @Override
-    public void onLocationChanged(@NonNull Location location) {
-        Log.d("LocationChanged", "onLocationChanged: "+location.getLatitude() +" ----- " +location.getLongitude());
-    }
 
     //metodo ligado ao button(android:onClick="procuraRestauranteNome")
     public void procuraRestauranteNome(View view) {
