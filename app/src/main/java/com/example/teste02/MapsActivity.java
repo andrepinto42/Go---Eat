@@ -31,6 +31,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.tabs.TabLayout;
 
@@ -69,6 +70,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         this.googleMap = googleMap;
 
         GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
+
+        googleMap.setOnMarkerClickListener(marker -> {
+
+            // on marker click we are getting the title of our marker
+            // which is clicked and displaying it in a toast message.
+            String markerName = marker.getTitle();
+            Toast.makeText(MapsActivity.this, "Clicked location is " + markerName, Toast.LENGTH_SHORT).show();
+            return false;
+        });
+
     }
 
     private void AddPinPoint(Restaurante restaurante) {
