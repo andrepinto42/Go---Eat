@@ -54,7 +54,7 @@ public class DownloadUrl {
         StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
         googlePlacesUrl.append("&radius=" + radius);
-        googlePlacesUrl.append("&type=" + nearbyPlace);
+        googlePlacesUrl.append("&keyword=" + nearbyPlace);
         googlePlacesUrl.append("&sensor=true");
         googlePlacesUrl.append("&key=" + "AIzaSyDy5aM287nlSaU-m3wCIQ3rZNP9Ju40MuI");
         Log.d("getUrl", googlePlacesUrl.toString());

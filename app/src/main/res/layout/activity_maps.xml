@@ -36,7 +36,7 @@
             android:layout_height="82dp"
             android:layout_gravity="bottom"
             android:layout_marginEnd="60dp"
-            android:onClick="Search"
+            android:onClick="NearbySearch"
             android:text="Improved\nSearch"
             map:layout_constraintBottom_toTopOf="@+id/button3"
             map:layout_constraintEnd_toEndOf="parent" />
@@ -65,7 +65,8 @@
             map:layout_constraintEnd_toStartOf="@+id/zoomOut"
             map:layout_constraintHorizontal_bias="0.376"
             map:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="29dp" />
+            tools:layout_editor_absoluteY="29dp"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/textEditRestaurant"

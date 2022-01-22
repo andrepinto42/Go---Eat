@@ -58,6 +58,8 @@ public class GetLocationUser {
 
                     double currentLat = location.getLatitude();
                     double currentLong = location.getLongitude();
+                    MapsActivity.userLat = currentLat;
+                    MapsActivity.userLon = currentLong;
 
                     System.out.println(currentLong + " _________________ " +currentLat);
                 }
