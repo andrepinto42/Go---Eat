@@ -65,7 +65,6 @@ public class MapsActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_maps);
 
 
-
         //Inicializar um singleton
         Singleton = this;
 
@@ -85,6 +84,8 @@ public class MapsActivity extends AppCompatActivity  {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
 
         GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
+
+
     }
 
     private void InitializeTabLayout() {
@@ -122,18 +123,6 @@ public class MapsActivity extends AppCompatActivity  {
             }
         });
     }
-
-    public void ButonClick(View view) {
-        if (view.getId() == R.id.zoom_in)
-        {
-            googleMap.animateCamera(CameraUpdateFactory.zoomIn());
-        }
-        if (view.getId() == R.id.zoom_out)
-        {
-            googleMap.animateCamera(CameraUpdateFactory.zoomOut());
-        }
-    }
-
 
     public void NearbySearch(View view)
     {
