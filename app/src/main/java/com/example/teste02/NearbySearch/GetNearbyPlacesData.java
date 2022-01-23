@@ -18,6 +18,7 @@ public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
     String googlePlacesData;
     GoogleMap mMap;
     String url;
+    private int maxSizePlaces = 20;
 
     @Override
     protected String doInBackground(Object... params) {
@@ -25,6 +26,7 @@ public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
             Log.d("GetNearbyPlacesData", "doInBackground entered");
             mMap = (GoogleMap) params[0];
             url = (String) params[1];
+            maxSizePlaces = (int) params[2];
             DownloadUrl downloadUrl = new DownloadUrl();
             googlePlacesData = downloadUrl.readUrl(url);
             Log.d("GooglePlacesReadTask", "doInBackground Exit");
@@ -45,7 +47,7 @@ public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
     }
 
     private void ShowNearbyPlaces(List<HashMap<String, String>> nearbyPlacesList) {
-        for (int i = 0; i < nearbyPlacesList.size(); i++) {
+        for (int i = 0; i < nearbyPlacesList.size() &&i<maxSizePlaces ;i++){
             Log.d("onPostExecute","Entered into showing locations");
             MarkerOptions markerOptions = new MarkerOptions();
             //Get a place identification

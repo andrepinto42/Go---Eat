@@ -2,11 +2,14 @@ package com.example.teste02;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.location.Location;
-import android.location.LocationManager;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,87 +17,118 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.example.teste02.Fragments.FragmentAdapter;
 import com.example.teste02.LocationAndroid.GetLocationUser;
-import com.example.teste02.LocationAndroid.NearbyRestaurants;
-import com.example.teste02.NearbySearch.DataParser;
 import com.example.teste02.NearbySearch.DownloadUrl;
 import com.example.teste02.NearbySearch.GetNearbyPlacesData;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
-
-    private GoogleMap googleMap;
+public class MapsActivity extends AppCompatActivity  {
+    private static final String TAG = "MapsActivity";
+    public static GoogleMap googleMap;
     Map<String, Restaurante> mapaRestaurantes;
     FusedLocationProviderClient fusedLocationProviderClient;
 
-    public static double userLat=0f;
-    public static double userLon=0f;
+    public static MapsActivity Singleton;
+
+    public static double userLat= 41.549214f;
+    public static double userLon= -8.424451f;
     EditText editTextSearch;
+
+    TabLayout tabLayout;
+    ViewPager2 pager2;
+    FragmentAdapter adapter;
+    HashMap<Integer,String> mapKeywords;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        //Texto de procura
-        editTextSearch = findViewById(R.id.textEditRestaurant);
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-       SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+
+        //Inicializar um singleton
+        Singleton = this;
+
+        mapKeywords = new HashMap<Integer,String>();
+        mapKeywords.put(R.id.radioButtonMarisqueira,"sea food");
+        mapKeywords.put(R.id.radioButtonChurrascaria,"barbecue");
+        mapKeywords.put(R.id.radioButtonMexicano,"mexican");
+        mapKeywords.put(R.id.radioButtonPizza,"pizza");
+        mapKeywords.put(R.id.radioButtonVegetariano,"vegan");
+        mapKeywords.put(R.id.radioButtonSushi,"sushi");
+
+        InitializeTabLayout();
+        //Texto de procura
+        //editTextSearch = findViewById(R.id.textEditRestaurant);
 
         //Getting fusedLocation
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
-    }
-
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        this.googleMap = googleMap;
 
         GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
-
-        googleMap.setOnMarkerClickListener(marker -> {
-
-            String markerName = marker.getTitle();
-            if (DataParser.mapNearbyRestaurant == null || DataParser.mapNearbyRestaurant.get(markerName) == null) return false;
-            Restaurante r = DataParser.mapNearbyRestaurant.get(markerName);
-            Toast.makeText(MapsActivity.this, "Clicked location is " +r.getNome() , Toast.LENGTH_SHORT).show();
-            return false;
-        });
-
     }
 
-    private void AddPinPoint(Restaurante restaurante) {
-        LatLng teste = new LatLng(restaurante.getLatitude(), restaurante.getLongitude());
-        googleMap.addMarker(new MarkerOptions().position(teste).title(restaurante.getNome()));
-        System.out.println("SET MARKER -> " + restaurante.getNome());
+    private void InitializeTabLayout() {
+        tabLayout = findViewById(R.id.tab_layout);
+        pager2 = findViewById(R.id.view_pager2);
+
+        FragmentManager fm = getSupportFragmentManager();
+        adapter = new FragmentAdapter(fm,getLifecycle());
+        pager2.setAdapter(adapter);
+        tabLayout.addTab(tabLayout.newTab().setText("Mapa"));
+        tabLayout.addTab(tabLayout.newTab().setText("Filtros"));
+        tabLayout.addTab(tabLayout.newTab().setText("Outro"));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                pager2.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        pager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
     }
 
     public void ButonClick(View view) {
-        if (view.getId() == R.id.zoomIn)
+        if (view.getId() == R.id.zoom_in)
         {
             googleMap.animateCamera(CameraUpdateFactory.zoomIn());
         }
-        if (view.getId() == R.id.zoomOut)
+        if (view.getId() == R.id.zoom_out)
         {
             googleMap.animateCamera(CameraUpdateFactory.zoomOut());
         }
@@ -103,122 +137,32 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void NearbySearch(View view)
     {
-        String keyword = "restaurant";
-        String textkeyword = editTextSearch.getText().toString();
-        if (!textkeyword.equals(""))
-            keyword = textkeyword;
+
+        if (allKeywords.size() == 1)
+            allKeywords.remove("restaurant");
+
+        if (allKeywords.size() == 0)
+            allKeywords.add("restaurant");
 
         Log.d("onClick", "Button is Clicked");
         googleMap.clear();
-        String url = DownloadUrl.getUrl(userLat, userLon, keyword,500);
-        Object[] DataTransfer = new Object[2];
-        DataTransfer[0] = googleMap;
-        DataTransfer[1] = url;
-        Log.d("onClick", url);
-        GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-        getNearbyPlacesData.execute(DataTransfer);
+        for (String s: allKeywords) {
+            String keyword = s;
+            String url = DownloadUrl.getUrl(userLat, userLon, keyword,500);
+            Object[] DataTransfer = new Object[3];
+            DataTransfer[0] = googleMap;
+            DataTransfer[1] = url;
+            DataTransfer[2] = 20 /   ((allKeywords.size() > 0) ? allKeywords.size() : 1);
+            Log.d("onClick", url);
+            GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+            getNearbyPlacesData.execute(DataTransfer);
+        }
+        pager2.setCurrentItem(0);
+
         Toast.makeText(MapsActivity.this,"Nearby Restaurants", Toast.LENGTH_LONG).show();
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.mymenu, menu);
 
 
-        menuInflater.inflate(R.menu.preferencias, menu);
-        MenuItem item_pizza = menu.findItem(R.id.manuPizza);
-        MenuItem item_Marisco = menu.findItem(R.id.manuMarisco);
-        MenuItem item_Churrasco = menu.findItem(R.id.menuChurrasco);
-        if(filterOption.equals("pizza")){
-            item_pizza.setChecked(true);
-
-        }else if(filterOption.equals("marisco")){
-            item_Marisco.setChecked(true);
-
-        }else if(filterOption.equals("churrasco")){
-            item_Churrasco.setChecked(true);
-        }
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.home:
-                setContentView(R.layout.activity_maps);
-                break;
-            case R.id.secondlayout:
-                setContentView(R.layout.secondlayout);
-                break;
-            case R.id.thirdlayout:
-                setContentView(R.layout.thirdlayout);
-                break;
-            case R.id.exit:
-                finish();
-                break;
-            default:
-                return false;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-
-    RatingBar ratingStars;
-    public void starBarMethod(){
-
-        ratingStars = findViewById(R.id.ratingBar);
-        ratingStars = findViewById(R.id.ratingBar);
-        ratingStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                int rating = (int) v;
-
-                String msg = null;
-
-                switch (rating){
-                    case 1:
-                        msg = ";(";
-                        break;
-                    case 2:
-                        msg = ":(";
-                        break;
-                    case 3:
-                        msg = ":|";
-                        break;
-                    case 4:
-                        msg = ":)";
-                        break;
-                    case 5:
-                        msg = ":D";
-                        break;
-
-                }
-                Toast.makeText(MapsActivity.this,msg,Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-    //metodo ligado ao button(android:onClick="procuraRestauranteNome")
-    public void procuraRestauranteNome(View view) {
-        EditText etNome = findViewById(R.id.textEditRestaurant);
-
-        for(Restaurante r : mapaRestaurantes.values()){
-            if(r.getNome().equals(etNome)){
-                LatLng rest = new LatLng(r.getLatitude(),r.getLongitude());
-                googleMap.addMarker(new MarkerOptions().position(rest).title(r.getNome()));//mudar o icon / cor??
-            }
-        }
-    }
-
-    public void sellectFilter(View view){
-        registerForContextMenu(view);
-        openContextMenu(view);
-
-    }
 
     String filterOption = "";
 
@@ -245,4 +189,39 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         return super.onContextItemSelected(item);
     }
+
+    private List<String> allKeywords = new ArrayList<String>();
+    public void ApplyFilter(View v)
+    {
+        String currentKeyword = mapKeywords.get( v.getId());
+        CheckBox checkBox = findViewById(v.getId());
+        if (allKeywords.contains(currentKeyword ) )
+            allKeywords.remove( currentKeyword);
+        else
+            allKeywords.add(currentKeyword);
+
+    }
+
+    public void CloseKeyboard()
+    {
+        View view = this.getCurrentFocus();
+        if (view == null) return;
+
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+    }
+
+    public void SetBackgroundAvaliar(boolean enabled)
+    {
+        ConstraintLayout constraintLayout= (ConstraintLayout) findViewById(R.id.layoutAvaliarRestaurante);
+        RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        Button avaliarButton = (Button) findViewById(R.id.avaliarButton);
+        ratingBar.setVisibility((enabled) ? View.VISIBLE : View.GONE);
+        avaliarButton.setVisibility((enabled) ? View.VISIBLE : View.GONE);
+        constraintLayout.setBackgroundColor((enabled) ? Color.rgb(255,236,215) : Color.TRANSPARENT);
+
+    }
+
+
+
 }

@@ -21,7 +21,7 @@ public class FragmentAdapter extends FragmentStateAdapter {
             case(2):
                 return new ThirdFragment();
         }
-        return new FirstFragment();
+        return new MapsFragment();
     }
 
     @Override
