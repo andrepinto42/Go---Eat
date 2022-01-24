@@ -56,7 +56,7 @@ public class DownloadUrl {
         googlePlacesUrl.append("&radius=" + radius);
         googlePlacesUrl.append("&keyword=" + nearbyPlace);
         googlePlacesUrl.append("&sensor=true");
-        googlePlacesUrl.append("&key=" + "AIzaSyDy5aM287nlSaU-m3wCIQ3rZNP9Ju40MuI");
+        googlePlacesUrl.append("&key=" + "AIzaSyC00nzQnbBnQXyyanDmBZAX0kbbHpH2WFM");
         Log.d("getUrl", googlePlacesUrl.toString());
         return (googlePlacesUrl.toString());
     }

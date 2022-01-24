@@ -2,7 +2,8 @@ package com.example.teste02.NearbySearch;
 
 import android.util.Log;
 
-import com.example.teste02.Restaurante;
+import com.example.teste02.MapsActivity;
+import com.example.teste02.SistemData.Restaurante;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,6 +48,7 @@ public class DataParser {
                 e.printStackTrace();
             }
         }
+        MapsActivity.Singleton.restauranteHashMap = mapNearbyRestaurant;
         return placesList;
     }
 

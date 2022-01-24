@@ -63,13 +63,6 @@ public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 
         }
-        MarkerOptions markerOptions = new MarkerOptions();
-        LatLng userLocation = new LatLng(MapsActivity.userLat,MapsActivity.userLon);
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-        markerOptions.position(userLocation);
 
-        mMap.addMarker(markerOptions);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng( userLocation ) );
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
     }
 }
