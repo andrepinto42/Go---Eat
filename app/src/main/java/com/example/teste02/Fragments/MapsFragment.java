@@ -2,37 +2,45 @@ package com.example.teste02.Fragments;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.teste02.LocationAndroid.GetLocationUser;
 import com.example.teste02.MapsActivity;
 import com.example.teste02.NearbySearch.DataParser;
 import com.example.teste02.R;
 import com.example.teste02.SistemData.Restaurante;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
 
-public class MapsFragment extends Fragment  {
+public class MapsFragment extends Fragment {
 
+    private final String TAG = "SEARCHLOCATION";
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         @Override
         public void onMapReady(GoogleMap googleMap) {
             MapsActivity.googleMap = googleMap;
 
-            GetLocationUser.StartGettingLocation(MapsActivity.Singleton,MapsActivity.Singleton.fusedLocationProviderClient);
 
             googleMap.setOnMarkerClickListener(marker -> {
 
                 String markerName = marker.getTitle();
-                if (DataParser.mapNearbyRestaurant == null || DataParser.mapNearbyRestaurant.get(markerName) == null) return false;
+                if (DataParser.mapNearbyRestaurant == null || DataParser.mapNearbyRestaurant.get(markerName) == null)
+                    return false;
                 Restaurante r = DataParser.mapNearbyRestaurant.get(markerName);
 
                 MapsActivity.Singleton.currentMarker = marker;
@@ -44,12 +52,45 @@ public class MapsFragment extends Fragment  {
             //Quando o usuario clica no mapa é desabilitado o butao de avaliar
             googleMap.setOnMapClickListener(maker -> {
                 System.out.println("Actived map clicker");
+                MapsActivity.Singleton.setTextDistanciaAteLugar("Distancia :");
+                MapsActivity.Singleton.setTextTempoAteLugar("Tempo :");
                 MapsActivity.Singleton.SetBackgroundAvaliar(false);
             });
 
-
+            GetLocationUser();
         }
     };
+
+    private void GetLocationUser() {
+        if (ActivityCompat.checkSelfPermission(MapsActivity.Singleton, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(MapsActivity.Singleton, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(MapsActivity.Singleton, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+            return;
+        }
+        LocationRequest mLocationRequest = LocationRequest.create();
+        mLocationRequest.setInterval(60000);
+        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        LocationCallback mLocationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                if (locationResult == null) {
+                    return;
+                }
+                for (Location location : locationResult.getLocations()) {
+                    if (location != null) {
+                        MapsActivity.Singleton.userLat = location.getLatitude();
+                        MapsActivity.Singleton.userLon = location.getLongitude();
+                        Log.d(TAG, "onLocationResult: " + location.getLatitude() + "   " + location.getLongitude());
+                    }
+                }
+            }
+        };
+
+
+        LocationServices.getFusedLocationProviderClient(MapsActivity.Singleton).requestLocationUpdates(mLocationRequest, mLocationCallback, null);
+    }
 
     @Nullable
     @Override
@@ -73,21 +114,6 @@ public class MapsFragment extends Fragment  {
     }
 
 
-    public String getUrl(LatLng origin, LatLng dest, String directionMode) {
-        // Origin of route
-        String str_origin = "origin=" + origin.latitude + "," + origin.longitude;
-        // Destination of route
-        String str_dest = "destination=" + dest.latitude + "," + dest.longitude;
-        // Mode
-        String mode = "mode=" + directionMode;
-        // Building the parameters to the web service
-        String parameters = str_origin + "&" + str_dest + "&" + mode;
-        // Output format
-        String output = "json";
-        // Building the url to the web service
-        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.google_maps_key);
-        return url;
 
-    }
 
 }

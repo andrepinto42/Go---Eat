@@ -17,7 +17,7 @@ import java.util.Locale;
 
 public class GetLocationUser {
 
-    public static Address userAddress;
+    public static Task<Location> findLocation;
 
     public static void StartGettingLocation(MapsActivity mapsActivity, FusedLocationProviderClient fusedLocationProviderClient) {
         //Check permissions
@@ -27,33 +27,14 @@ public class GetLocationUser {
                 ActivityCompat.requestPermissions(mapsActivity,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         } else {
+
             System.out.println("Trying to get Last Location");
             Task<Location> task = fusedLocationProviderClient.getLastLocation();
-
-            task.addOnCompleteListener(task1 -> {
-
-                Location location = task1.getResult();
-                if (location != null) {
-                    //Initialize GeoCoder
-                    Geocoder geocoder = new Geocoder(mapsActivity, Locale.getDefault());
-                    //Initialize address list
-                    try {
-                        System.out.println("Tentou");
-                        List<Address> addressList = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                        userAddress = addressList.get(0);
-                        System.out.println(userAddress.getLatitude() + "------" + userAddress.getLongitude());
-
-                    } catch (IOException e) {
-                        System.out.println("Ocorreu uma execcao");
-                        e.printStackTrace();
-                    }
-                }
-            });
-
-
+            findLocation = task;
 
             task.addOnSuccessListener(location -> {
-
+                System.out.println("Sucess on finding Location");
+                System.out.println(location + " ÇLocation");
                 if (location != null) {
 
                     double currentLat = location.getLatitude();
@@ -61,9 +42,10 @@ public class GetLocationUser {
                     MapsActivity.userLat = currentLat;
                     MapsActivity.userLon = currentLong;
 
-                    System.out.println(currentLong + " _________________ " +currentLat);
+                    System.out.println(currentLong + " Latitude ---- Longitude  " +currentLat);
                 }
             });
+
 
         }
     }

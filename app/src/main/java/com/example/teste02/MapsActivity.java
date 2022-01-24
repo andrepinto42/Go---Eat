@@ -18,14 +18,21 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.teste02.DirectionsSearch.DataParserDirections;
+import com.example.teste02.DirectionsSearch.FetchURL;
+import com.example.teste02.DirectionsSearch.GetDirectionsData;
+import com.example.teste02.DirectionsSearch.TaskLoadedCallback;
 import com.example.teste02.Fragments.FragmentAdapter;
 import com.example.teste02.LocationAndroid.GetLocationUser;
 import com.example.teste02.NearbySearch.DataParser;
 import com.example.teste02.NearbySearch.DownloadUrl;
 import com.example.teste02.NearbySearch.GetNearbyPlacesData;
+import com.example.teste02.SistemData.Localizacao;
 import com.example.teste02.SistemData.Restaurante;
+import com.example.teste02.SistemData.Viagem;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -34,15 +41,19 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MapsActivity extends AppCompatActivity {
+public class MapsActivity extends AppCompatActivity implements TaskLoadedCallback {
     private static final String TAG = "MapsActivity";
     public static GoogleMap googleMap;
     public FusedLocationProviderClient fusedLocationProviderClient;
@@ -55,6 +66,8 @@ public class MapsActivity extends AppCompatActivity {
     ViewPager2 pager2;
     FragmentAdapter adapter;
     HashMap<Integer,String> mapKeywords;
+    TextView textoDistanciaAteLugar;
+    TextView textoTempoAteLugar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,14 +86,33 @@ public class MapsActivity extends AppCompatActivity {
         mapKeywords.put(R.id.radioButtonVegetariano,"vegan");
         mapKeywords.put(R.id.radioButtonSushi,"sushi");
 
+        textoDistanciaAteLugar = getTextDistanciaAteLugar();
+        textoTempoAteLugar = getTextTempoAteLugar();
+
         InitializeTabLayout();
         //Texto de procura
         //editTextSearch = findViewById(R.id.textEditRestaurant);
 
         //Getting fusedLocation
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MapsActivity.this);
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
 
+    }
+
+    public TextView getTextTempoAteLugar() {
+        return (TextView) findViewById(R.id.textTimeSeconds);
+    }
+
+    public TextView getTextDistanciaAteLugar() {
+        return (TextView) findViewById(R.id.textDistanceMeters);
+    }
+
+    public void setTextTempoAteLugar(String t) {
+        ((TextView) findViewById(R.id.textTimeSeconds)).setText("Tempo : " + t);
+    }
+
+    public void setTextDistanciaAteLugar(String t) {
+        ((TextView) findViewById(R.id.textDistanceMeters)).setText("Distancia : " + t);
     }
 
     private void InitializeTabLayout() {
@@ -120,12 +152,17 @@ public class MapsActivity extends AppCompatActivity {
 
     public void NearbySearch(View view)
     {
+        try {
+            System.out.println(GetLocationUser.findLocation.isSuccessful() + " sucesso");
+            System.out.println( GetLocationUser.findLocation.getResult().toString() + " NEARBY SEARCH");
+        }catch (Exception e){e.printStackTrace();
+            System.out.println("ERRO DE LOCALIZACAO");}
 
-        GetLocationUser.StartGettingLocation(this,fusedLocationProviderClient);
         TextInputLayout inputLayout = findViewById(R.id.textInputLayout);
         String text = inputLayout.getEditText().getText().toString();
         if (!text.isEmpty())
         {
+            googleMap.clear();
             NearbySearchKeyword(text,20);
             inputLayout.getEditText().setText("");
         }
@@ -188,12 +225,15 @@ public class MapsActivity extends AppCompatActivity {
 
     public void SetBackgroundAvaliar(boolean enabled)
     {
-        ConstraintLayout constraintLayout= (ConstraintLayout) findViewById(R.id.layoutAvaliarRestaurante);
-        RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-        Button avaliarButton = (Button) findViewById(R.id.avaliarButton);
-        ratingBar.setVisibility((enabled) ? View.VISIBLE : View.GONE);
-        avaliarButton.setVisibility((enabled) ? View.VISIBLE : View.GONE);
-        constraintLayout.setBackgroundColor((enabled) ? Color.rgb(255,236,215) : Color.TRANSPARENT);
+        findViewById(R.id.layoutAvaliarRestaurante).setVisibility((enabled) ? View.VISIBLE : View.GONE);
+        findViewById(R.id.textDistanceMeters).setVisibility((enabled) ? View.VISIBLE : View.GONE);
+        findViewById(R.id.textTimeSeconds).setVisibility((enabled) ? View.VISIBLE : View.GONE);
+        findViewById(R.id.textDistanciaPercorridaDeCarro).setVisibility((enabled) ? View.VISIBLE : View.GONE);
+        findViewById(R.id.ratingBar).setVisibility((enabled) ? View.VISIBLE : View.GONE);
+        findViewById(R.id.avaliarButton).setVisibility((enabled) ? View.VISIBLE : View.GONE);
+        findViewById(R.id.irButton).setVisibility((enabled) ? View.VISIBLE : View.GONE);
+
+        findViewById(R.id.layoutAvaliarRestaurante).setBackgroundColor((enabled) ? Color.rgb(255,236,215) : Color.TRANSPARENT);
 
     }
 
@@ -206,8 +246,32 @@ public class MapsActivity extends AppCompatActivity {
         currentRestaurante.setRating(rating);
         Toast.makeText(this, currentRestaurante.getNome()+ " avaliado em " + rating, Toast.LENGTH_LONG).show();
         SetBackgroundAvaliar(false);
+        ratingBar.setRating(0f);
     }
 
+    public void NovaViagem(View v)
+    {
+        if (currentMarker == null) return;
+        Localizacao origem = new Localizacao(0,(float) userLat,(float) userLon,new String[]{});
+        Localizacao destino = new Localizacao(0,(float) currentMarker.getPosition().latitude,(float) currentMarker.getPosition().longitude,new String[]{});
 
+        //Criar uma nova viagem quando o cliente clica no butao IR
+        Viagem viagem = new Viagem(origem,destino,10f,restauranteHashMap.get(currentMarker.getTitle()),false);
 
+        //Parte mais importante da execuçao
+        String url = GetDirectionsData.getUrl(new LatLng(userLat,userLon), new LatLng( currentMarker.getPosition().latitude,currentMarker.getPosition().longitude ),"driving");
+        new FetchURL(this).execute(url,"driving");
+    }
+
+    Polyline currentPolyline;
+    @Override
+    public void onTaskDone(Object... values) {
+        if (currentPolyline != null)
+            currentPolyline.remove();
+
+        setTextDistanciaAteLugar( DataParserDirections.distancia);
+        setTextTempoAteLugar( DataParserDirections.tempo);
+        currentPolyline = googleMap.addPolyline((PolylineOptions) values[0]);
+        Toast.makeText(this, "Caminho encontrado", Toast.LENGTH_SHORT).show();
+    }
 }
